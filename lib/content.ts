@@ -3,7 +3,8 @@ import type { Bi } from "./i18n";
 export type Service = {
   slug: string;
   icon: string;
-  title: string;
+  title: Bi;
+  image: string;
   summary: Bi;
   points: Bi[];
 };
@@ -12,7 +13,8 @@ export const services: Service[] = [
   {
     slug: "airport-transfer",
     icon: "✈️",
-    title: "Airport Transfer",
+    title: { tr: "Havalimanı Transferi", en: "Airport Transfer" },
+    image: "/images/services/1.png",
     summary: {
       tr: "Istanbul Airport (IST), Sabiha Gökçen (SAW), Antalya, Bodrum, Dalaman, İzmir, Ankara, Kapadokya ve diğer havalimanları.",
       en: "Istanbul Airport (IST), Sabiha Gökçen (SAW), Antalya, Bodrum, Dalaman, Izmir, Ankara, Cappadocia and other airports.",
@@ -27,7 +29,8 @@ export const services: Service[] = [
   {
     slug: "chauffeur-service",
     icon: "🚘",
-    title: "Chauffeur Service",
+    title: { tr: "Şoförlü Araç Hizmeti", en: "Chauffeur Service" },
+    image: "/images/services/2.png",
     summary: {
       tr: "Saatlik şoförlü araç, günlük şoförlü araç, business seyahat, alışveriş, toplantılar, özel programlar.",
       en: "Hourly chauffeur service, daily chauffeur-driven car, business travel, shopping, meetings, private programs.",
@@ -42,7 +45,8 @@ export const services: Service[] = [
   {
     slug: "private-tours",
     icon: "🗺️",
-    title: "Private Tours",
+    title: { tr: "Özel Turlar", en: "Private Tours" },
+    image: "/images/services/3.png",
     summary: {
       tr: "İstanbul, Bodrum, Kapadokya, Antalya, Pamukkale, Efes, Fethiye, Marmaris, Çeşme & Alaçatı, Trabzon & Karadeniz ve diğer popüler destinasyonlar.",
       en: "Istanbul, Bodrum, Cappadocia, Antalya, Pamukkale, Ephesus, Fethiye, Marmaris, Çeşme & Alaçatı, Trabzon & the Black Sea and other popular destinations.",
@@ -57,7 +61,8 @@ export const services: Service[] = [
   {
     slug: "wedding-events",
     icon: "💍",
-    title: "Wedding & Events",
+    title: { tr: "Düğün & Etkinlik Transferi", en: "Wedding & Events" },
+    image: "/images/services/4.png",
     summary: {
       tr: "Düğün transferi, gelin & damat, davetli transferleri, nişan, özel davetler, kongre, fuar, kurumsal etkinlikler.",
       en: "Wedding transfers, bride & groom, guest transfers, engagements, private receptions, congresses, fairs, corporate events.",
@@ -72,7 +77,8 @@ export const services: Service[] = [
   {
     slug: "intercity-transfer",
     icon: "🚗",
-    title: "Intercity Transfer",
+    title: { tr: "Şehirlerarası Transfer", en: "Intercity Transfer" },
+    image: "/images/services/5.png",
     summary: {
       tr: "Örnek rotalar: Istanbul → Bodrum, Istanbul → Bursa, Istanbul → Cappadocia, Bodrum → Dalaman, Antalya → Cappadocia.",
       en: "Example routes: Istanbul → Bodrum, Istanbul → Bursa, Istanbul → Cappadocia, Bodrum → Dalaman, Antalya → Cappadocia.",

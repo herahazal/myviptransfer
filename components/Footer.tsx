@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { destinations } from "@/lib/content";
 import { useLanguage } from "@/lib/i18n";
+import { WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -31,12 +32,12 @@ export default function Footer() {
           <div>
             <div className="footer-heading">{t("Hizmetler", "Services")}</div>
             <ul className="footer-links">
-              <li><Link href="/#services">Airport Transfer</Link></li>
-              <li><Link href="/#services">Private Tours</Link></li>
-              <li><Link href="/#services">Chauffeur Service</Link></li>
-              <li><Link href="/#services">Intercity Transfer</Link></li>
-              <li><Link href="/wedding">Wedding & Events</Link></li>
-              <li><Link href="/#corporate">Corporate Travel</Link></li>
+              <li><Link href="/#services">{t("Havalimanı Transferi", "Airport Transfer")}</Link></li>
+              <li><Link href="/#services">{t("Özel Turlar", "Private Tours")}</Link></li>
+              <li><Link href="/#services">{t("Şoförlü Araç Hizmeti", "Chauffeur Service")}</Link></li>
+              <li><Link href="/#services">{t("Şehirlerarası Transfer", "Intercity Transfer")}</Link></li>
+              <li><Link href="/wedding">{t("Düğün & Etkinlik Transferi", "Wedding & Events")}</Link></li>
+              <li><Link href="/#corporate">{t("Kurumsal Ulaşım", "Corporate Travel")}</Link></li>
             </ul>
           </div>
 
@@ -60,7 +61,7 @@ export default function Footer() {
               <li>
                 <a href="mailto:info@myviptransfer.com">info@myviptransfer.com</a>
               </li>
-              <li>WhatsApp: +90 542 627 58 47</li>
+              <li>WhatsApp: {WHATSAPP_DISPLAY}</li>
               <li><Link href="/privacy">KVKK & Privacy Policy</Link></li>
               <li><Link href="/terms">{t("Kullanım Şartları", "Terms & Conditions")}</Link></li>
               <li><Link href="/cancellation-policy">{t("İptal Politikası", "Cancellation Policy")}</Link></li>

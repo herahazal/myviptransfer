@@ -21,17 +21,18 @@ npm run dev
   ve tüm anasayfa bölümleri
 - `lib/content.ts` — hizmetler, filo, destinasyonlar, SSS, yorumlar verisi
   (tek yerden güncellenir)
-- `lib/whatsapp.ts` — WhatsApp link/numara yardımcıları
+- `lib/whatsapp.ts` — WhatsApp link/numara yardımcıları (tek kaynak: `WHATSAPP_PRIMARY`)
 - `public/images/fleet/` — araç fotoğrafları buraya eklenir
+- `public/images/services/` — hizmet kartı görselleri buraya eklenir
 
 ## Araç fotoğrafları ekleme
 
 Filodaki 6 araç için gerçek fotoğraflar henüz eklenmedi; bu dosyalar
 gelene kadar her araç kartı otomatik olarak şık bir placeholder ikonu
-gösterir (`components/FleetImage.tsx`, `lib/media.ts`). Gerçek
-fotoğraflar hazır olduğunda aşağıdaki dosya adlarıyla
-`public/images/fleet/` klasörüne eklemeniz yeterli — kod değişikliği
-gerekmez:
+gösterir (`components/FleetImage.tsx` — görsel yüklenemezse `onError`
+ile placeholder'a düşer). Gerçek fotoğraflar hazır olduğunda aşağıdaki
+dosya adlarıyla `public/images/fleet/` klasörüne eklemeniz yeterli —
+kod değişikliği gerekmez:
 
 ```
 public/images/fleet/mercedes-s-class.jpg
@@ -42,14 +43,30 @@ public/images/fleet/premium-vip-sprinter.jpg
 public/images/fleet/standard-sprinter.jpg
 ```
 
+## Hizmet kartı görselleri ekleme
+
+Anasayfadaki 5 hizmet kartının (Havalimanı Transferi, Şoförlü Araç
+Hizmeti, Özel Turlar, Düğün & Etkinlik Transferi, Şehirlerarası
+Transfer) üst görselleri de aynı şekilde `onError` ile placeholder'a
+düşer (`components/ServiceImage.tsx`). Aşağıdaki dosya adlarıyla
+`public/images/services/` klasörüne eklemeniz yeterli:
+
+```
+public/images/services/1.png   → Havalimanı Transferi
+public/images/services/2.png   → Şoförlü Araç Hizmeti
+public/images/services/3.png   → Özel Turlar
+public/images/services/4.png   → Düğün & Etkinlik Transferi
+public/images/services/5.png   → Şehirlerarası Transfer
+```
+
 ## Rezervasyon formu
 
 `components/BookingSection.tsx` içindeki "Book Your Transfer" ve
 "Request a Quote" formları backend gerektirmez — gönderildiğinde form
 verilerini önceden doldurulmuş bir WhatsApp mesajına dönüştürüp
-`https://api.whatsapp.com/send` üzerinden açar. WhatsApp numarası
-`lib/whatsapp.ts` içinde `WHATSAPP_PRIMARY` olarak tanımlıdır; ikinci
-numara (`WHATSAPP_SECONDARY`) teyit edildiğinde gerekirse kullanılabilir.
+`https://wa.me/...` üzerinden açar. WhatsApp numarası tek bir yerden,
+`lib/whatsapp.ts` içindeki `WHATSAPP_PRIMARY` sabitinden yönetilir —
+sitedeki tüm WhatsApp butonları buradan besleniyor.
 
 ## Vercel'e deploy
 

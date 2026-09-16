@@ -588,10 +588,9 @@ a {
 .service-card {
   border: 1px solid rgba(201, 164, 92, 0.4);
   background: linear-gradient(165deg, rgba(201, 164, 92, 0.16) 0%, rgba(201, 164, 92, 0.04) 55%, #fff 100%);
-  padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  overflow: hidden;
   transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
 }
 
@@ -599,6 +598,43 @@ a {
   border-color: var(--gold);
   background: linear-gradient(165deg, rgba(201, 164, 92, 0.24) 0%, rgba(201, 164, 92, 0.06) 55%, #fff 100%);
   transform: translateY(-3px);
+}
+
+/* Top image area — same top corner radius as the card itself (none, by
+   design: the whole site keeps sharp edges), full bleed to the card's own
+   edges, fixed aspect ratio so every card in a row lines up. */
+.service-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(201, 164, 92, 0.35), rgba(201, 164, 92, 0.1));
+}
+
+.service-card-media img {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-card-media img {
+  transform: scale(1.06);
+}
+
+.service-card-media-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201, 164, 92, 0.45) 0%, rgba(10, 14, 23, 0.15) 100%);
+}
+
+/* Soft cream wash + light blur over the photo, so it reads as a quiet
+   backdrop — the card's own title/description below stay fully crisp. */
+.service-card-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 244, 238, 0.18);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  pointer-events: none;
 }
 
 .service-icon {
@@ -610,6 +646,14 @@ a {
   border-radius: 999px;
   background: var(--gold);
   font-size: 1.5rem;
+}
+
+.service-card-body {
+  padding: 1.75rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
 }
 
 .service-card h3 {

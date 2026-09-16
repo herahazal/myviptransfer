@@ -3,6 +3,7 @@
 import { services } from "@/lib/content";
 import { whatsappLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/i18n";
+import ServiceImage from "./ServiceImage";
 
 export default function Services() {
   const { t } = useLanguage();
@@ -22,30 +23,41 @@ export default function Services() {
         </p>
 
         <div className="service-grid">
-          {services.map((service) => (
-            <div className="service-card" key={service.slug}>
-              <span className="service-icon">{service.icon}</span>
-              <h3>{service.title}</h3>
-              <p className="service-summary">{t(service.summary.tr, service.summary.en)}</p>
-              <ul className="service-points">
-                {service.points.map((point) => (
-                  <li key={point.tr}>{t(point.tr, point.en)}</li>
-                ))}
-              </ul>
-              <div className="service-card-foot">
-                <a
-                  href={whatsappLink(
-                    `Merhaba, ${service.title} hizmeti hakkında bilgi almak istiyorum.`,
+          {services.map((service) => {
+            const title = t(service.title.tr, service.title.en);
+            return (
+              <div className="service-card" key={service.slug}>
+                <ServiceImage
+                  src={service.image}
+                  alt={t(
+                    `${service.title.tr} hizmeti`,
+                    `${service.title.en} service`,
                   )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp"
-                >
-                  {t("WhatsApp'tan Sor", "Ask on WhatsApp")}
-                </a>
+                />
+                <div className="service-card-body">
+                  <h3>{title}</h3>
+                  <p className="service-summary">{t(service.summary.tr, service.summary.en)}</p>
+                  <ul className="service-points">
+                    {service.points.map((point) => (
+                      <li key={point.tr}>{t(point.tr, point.en)}</li>
+                    ))}
+                  </ul>
+                  <div className="service-card-foot">
+                    <a
+                      href={whatsappLink(
+                        `Merhaba, ${service.title.tr} hizmeti hakkında bilgi almak istiyorum.`,
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-whatsapp"
+                    >
+                      {t("WhatsApp'tan Sor", "Ask on WhatsApp")}
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
