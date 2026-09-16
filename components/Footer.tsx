@@ -16,14 +16,14 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <Image
-              src="/images/logo/logo-transparent.png"
+              src="/images/logo/logo-monogram-transparent.png"
               alt="myviptransfer"
-              width={170}
-              height={54}
+              width={90}
+              height={60}
             />
             <p className="mt-4 text-sm opacity-70 max-w-xs">
               {t(
-                "Premium Private Transfers Across Turkey — İstanbul, Bodrum, Antalya ve Türkiye genelinde VIP transfer, özel tur ve şoförlü araç hizmetleri.",
+                "Türkiye Genelinde Premium Özel Transfer — İstanbul, Bodrum, Antalya ve Türkiye genelinde VIP transfer, özel tur ve şoförlü araç hizmetleri.",
                 "Premium Private Transfers Across Turkey — VIP transfer, private tour and chauffeur services in Istanbul, Bodrum, Antalya and across Turkey.",
               )}
             </p>
@@ -62,7 +62,7 @@ export default function Footer() {
                 <a href="mailto:info@myviptransfer.com">info@myviptransfer.com</a>
               </li>
               <li>WhatsApp: {WHATSAPP_DISPLAY}</li>
-              <li><Link href="/privacy">KVKK & Privacy Policy</Link></li>
+              <li><Link href="/privacy">{t("KVKK & Gizlilik Politikası", "KVKK & Privacy Policy")}</Link></li>
               <li><Link href="/terms">{t("Kullanım Şartları", "Terms & Conditions")}</Link></li>
               <li><Link href="/cancellation-policy">{t("İptal Politikası", "Cancellation Policy")}</Link></li>
               <li><Link href="/booking-conditions">{t("Rezervasyon Koşulları", "Booking Conditions")}</Link></li>
@@ -72,14 +72,14 @@ export default function Footer() {
 
         <div className="legal-box">
           {t(
-            "MAQ BLUE ISLAND TRAVEL AGENCY — myviptransfer, Türkiye genelinde faaliyet gösteren bir seyahat acentası markasıdır. TÜRSAB belge numarası ve vergi bilgileri talep üzerine paylaşılır. Rezervasyon, iptal şartları ve fiyata dahil/dahil olmayan hizmetler booking ve fiyat sayfalarında ayrıca belirtilir.",
-            "MAQ BLUE ISLAND TRAVEL AGENCY — myviptransfer is a travel agency brand operating across Turkey. TÜRSAB license number and tax details are available on request. Booking, cancellation terms and what's included or excluded are stated separately on the booking and pricing pages.",
+            "MY VIP TRANSFER — myviptransfer, Türkiye genelinde faaliyet gösteren bir seyahat acentası markasıdır. TÜRSAB belge numarası ve vergi bilgileri talep üzerine paylaşılır. Rezervasyon, iptal şartları ve fiyata dahil/dahil olmayan hizmetler booking ve fiyat sayfalarında ayrıca belirtilir.",
+            "MY VIP TRANSFER — myviptransfer is a travel agency brand operating across Turkey. TÜRSAB license number and tax details are available on request. Booking, cancellation terms and what's included or excluded are stated separately on the booking and pricing pages.",
           )}
         </div>
 
         <div className="footer-bottom">
           <span>© {year} myviptransfer. {t("Tüm hakları saklıdır.", "All rights reserved.")}</span>
-          <span>Istanbul · Bodrum · Antalya · Cappadocia · Turkey Wide</span>
+          <span>Istanbul · Bodrum · Antalya · Cappadocia · {t("Türkiye Geneli", "Turkey Wide")}</span>
         </div>
       </div>
     </footer>

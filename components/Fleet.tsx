@@ -11,7 +11,7 @@ export default function Fleet() {
   return (
     <section className="section section-dark" id="fleet">
       <div className="container">
-        <p className="eyebrow">Premium Fleet</p>
+        <p className="eyebrow">{t("Premium Filo", "Premium Fleet")}</p>
         <h2 className="section-title">{t("Her Yolculuğa Uygun Araç", "The Right Vehicle for Every Journey")}</h2>
         <p className="section-lede">
           {t(
@@ -30,7 +30,7 @@ export default function Fleet() {
                 />
               </div>
               <div className="fleet-card-body">
-                <p className="fleet-card-subtitle">{vehicle.subtitle}</p>
+                <p className="fleet-card-subtitle">{t(vehicle.subtitle.tr, vehicle.subtitle.en)}</p>
                 <h3 className="fleet-card-title">{vehicle.name}</h3>
                 <span className="fleet-card-link">{t("Aracı İncele →", "View Vehicle →")}</span>
               </div>

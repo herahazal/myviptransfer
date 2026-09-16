@@ -36,14 +36,14 @@ export default function WeddingContent() {
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Wedding & Events</p>
+          <p className="eyebrow">{t("Düğün & Etkinlik", "Wedding & Events")}</p>
           <h1 className="section-title" style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}>
-            Your Special Day, Our Special Care
+            {t("Özel Gününüz, Bizim Özel İlgimiz", "Your Special Day, Our Special Care")}
           </h1>
           <p className="section-lede" style={{ maxWidth: "60ch" }}>
             {t(
-              "Make Your Special Day Even More Special. Hayatınızın en özel günlerinden birinde ulaşım detaylarını düşünmenize gerek kalmasın. myviptransfer, düğün, nikâh, nişan ve özel organizasyonlarınız için gelin-damat ve davetlilere özel VIP transfer çözümleri sunar.",
-              "Make Your Special Day Even More Special. You shouldn't have to think about transportation on one of the most special days of your life. myviptransfer offers VIP transfer solutions tailored for the bride, groom and guests for your wedding, civil ceremony, engagement and private events.",
+              "Özel gününüzü daha da özel kılalım. Hayatınızın en özel günlerinden birinde ulaşım detaylarını düşünmenize gerek kalmasın. myviptransfer, düğün, nikâh, nişan ve özel organizasyonlarınız için gelin-damat ve davetlilere özel VIP transfer çözümleri sunar.",
+              "Make your special day even more special. You shouldn't have to think about transportation on one of the most special days of your life. myviptransfer offers VIP transfer solutions tailored for the bride, groom and guests for your wedding, civil ceremony, engagement and private events.",
             )}
           </p>
           <div className="mt-8">
@@ -98,7 +98,7 @@ export default function WeddingContent() {
                   <FleetImage src={v.image} alt={v.name} />
                 </div>
                 <div className="fleet-card-body">
-                  <p className="fleet-card-subtitle">{v.subtitle}</p>
+                  <p className="fleet-card-subtitle">{t(v.subtitle.tr, v.subtitle.en)}</p>
                   <h3 className="fleet-card-title">{v.name}</h3>
                   <span className="fleet-card-link">{t("Aracı İncele →", "View Vehicle →")}</span>
                 </div>

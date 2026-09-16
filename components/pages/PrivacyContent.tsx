@@ -1,15 +1,18 @@
 "use client";
 
 import Bilingual from "@/components/Bilingual";
+import { useLanguage } from "@/lib/i18n";
 
 export default function PrivacyContent() {
+  const { t } = useLanguage();
+
   return (
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Legal</p>
+          <p className="eyebrow">{t("Yasal", "Legal")}</p>
           <h1 className="section-title" style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)" }}>
-            KVKK & Privacy Policy
+            {t("KVKK & Gizlilik Politikası", "KVKK & Privacy Policy")}
           </h1>
         </div>
       </section>
@@ -20,7 +23,7 @@ export default function PrivacyContent() {
             tr={
               <>
                 <p>
-                  myviptransfer (&ldquo;MAQ BLUE ISLAND TRAVEL AGENCY&rdquo;) olarak, 6698 sayılı
+                  myviptransfer (&ldquo;MY VIP TRANSFER&rdquo;) olarak, 6698 sayılı
                   Kişisel Verilerin Korunması Kanunu (&ldquo;KVKK&rdquo;) kapsamında kişisel
                   verilerinizin güvenliğine önem veriyoruz. Bu sayfa, rezervasyon ve
                   iletişim süreçlerinde topladığımız verilerin nasıl işlendiğini
@@ -55,7 +58,7 @@ export default function PrivacyContent() {
             en={
               <>
                 <p>
-                  As myviptransfer (&ldquo;MAQ BLUE ISLAND TRAVEL AGENCY&rdquo;), we take the
+                  As myviptransfer (&ldquo;MY VIP TRANSFER&rdquo;), we take the
                   security of your personal data seriously under Turkey&rsquo;s Law No.
                   6698 on the Protection of Personal Data (&ldquo;KVKK&rdquo;). This page
                   summarizes how we process the data we collect during booking

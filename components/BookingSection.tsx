@@ -17,17 +17,17 @@ export default function BookingSection() {
     const get = (k: string) => (data.get(k) as string)?.trim() || "—";
 
     const lines = [
-      "*BOOK YOUR TRANSFER*",
-      `Pickup: ${get("pickup")}`,
-      `Destination: ${get("destination")}`,
-      `Date: ${get("date")}`,
-      `Time: ${get("time")}`,
-      `Passengers: ${get("passengers")}`,
-      `Vehicle: ${get("vehicle")}`,
-      `Flight Number: ${get("flight")}`,
-      `Name: ${get("name")}`,
+      "Merhaba, fiyat teklifi almak istiyorum:",
+      `Alış: ${get("pickup")}`,
+      `Varış: ${get("destination")}`,
+      `Tarih: ${get("date")}`,
+      `Saat: ${get("time")}`,
+      `Yolcu: ${get("passengers")}`,
+      `Araç: ${get("vehicle")}`,
+      `Uçuş No: ${get("flight")}`,
+      `Ad Soyad: ${get("name")}`,
       `WhatsApp: ${get("phone")}`,
-      `Email: ${get("email")}`,
+      `E-posta: ${get("email")}`,
     ];
 
     window.open(whatsappLink(lines.join("\n")), "_blank", "noopener,noreferrer");
@@ -39,15 +39,15 @@ export default function BookingSection() {
     const get = (k: string) => (data.get(k) as string)?.trim() || "—";
 
     const lines = [
-      "*REQUEST A QUOTE*",
-      `Service: ${get("service")}`,
-      `Route / Destination: ${get("route")}`,
-      `Date: ${get("date")}`,
-      `Passengers: ${get("passengers")}`,
-      `Name: ${get("name")}`,
+      "Merhaba, fiyat teklifi almak istiyorum:",
+      `Hizmet: ${get("service")}`,
+      `Güzergâh: ${get("route")}`,
+      `Tarih: ${get("date")}`,
+      `Yolcu: ${get("passengers")}`,
+      `Ad Soyad: ${get("name")}`,
       `WhatsApp: ${get("phone")}`,
-      `Email: ${get("email")}`,
-      `Notes: ${get("notes")}`,
+      `E-posta: ${get("email")}`,
+      `Not: ${get("notes")}`,
     ];
 
     window.open(whatsappLink(lines.join("\n")), "_blank", "noopener,noreferrer");
@@ -156,11 +156,11 @@ export default function BookingSection() {
               <label className="form-label" htmlFor="q-service">{t("Hizmet", "Service")}</label>
               <select className="form-select" id="q-service" name="service" defaultValue="">
                 <option value="" disabled>{t("Hizmet seçin", "Select a service")}</option>
-                <option>Private Tour</option>
-                <option>Wedding & Events</option>
-                <option>Chauffeur-Driven Car Service</option>
-                <option>Intercity Transfer</option>
-                <option>Corporate Travel</option>
+                <option value="Özel Tur">{t("Özel Tur", "Private Tour")}</option>
+                <option value="Düğün & Etkinlik">{t("Düğün & Etkinlik", "Wedding & Events")}</option>
+                <option value="Şoförlü Araç Hizmeti">{t("Şoförlü Araç Hizmeti", "Chauffeur-Driven Car Service")}</option>
+                <option value="Şehirlerarası Transfer">{t("Şehirlerarası Transfer", "Intercity Transfer")}</option>
+                <option value="Kurumsal Ulaşım">{t("Kurumsal Ulaşım", "Corporate Travel")}</option>
               </select>
             </div>
             <div>
@@ -223,10 +223,6 @@ function Pricing() {
 
   return (
     <div className="mt-20">
-      <p className="eyebrow">{t("Fiyatlandırma", "Pricing")}</p>
-      <h3 className="section-title" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}>
-        {t("Şeffaf, Önceden Bildirilen Fiyatlar", "Transparent, Upfront Pricing")}
-      </h3>
       <div className="pricing-grid">
         <div className="pricing-card">
           <p className="pricing-card-title">{t("Sabit Fiyat", "Fixed Price")}</p>

@@ -1,15 +1,18 @@
 "use client";
 
 import Bilingual from "@/components/Bilingual";
+import { useLanguage } from "@/lib/i18n";
 
 export default function BookingConditionsContent() {
+  const { t } = useLanguage();
+
   return (
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Legal</p>
+          <p className="eyebrow">{t("Yasal", "Legal")}</p>
           <h1 className="section-title" style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)" }}>
-            Booking Conditions
+            {t("Rezervasyon Koşulları", "Booking Conditions")}
           </h1>
         </div>
       </section>

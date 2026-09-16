@@ -20,13 +20,13 @@ export default function VehicleContent({ vehicle }: { vehicle: Vehicle }) {
         </div>
 
         <div>
-          <p className="eyebrow">{vehicle.subtitle}</p>
+          <p className="eyebrow">{t(vehicle.subtitle.tr, vehicle.subtitle.en)}</p>
           <h1 className="section-title" style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)" }}>
             {vehicle.name}
           </h1>
           {vehicle.slogan && (
             <p className="mt-2 text-sm font-semibold tracking-wide" style={{ color: "var(--gold-dim)" }}>
-              {vehicle.slogan}
+              {t(vehicle.slogan.tr, vehicle.slogan.en)}
             </p>
           )}
           <p className="section-lede">{t(vehicle.description.tr, vehicle.description.en)}</p>
@@ -45,11 +45,11 @@ export default function VehicleContent({ vehicle }: { vehicle: Vehicle }) {
             <div className="flex flex-wrap gap-2 mt-3">
               {vehicle.usage.map((u) => (
                 <span
-                  key={u}
+                  key={u.tr}
                   className="text-xs font-semibold uppercase tracking-wide px-3 py-1.5"
                   style={{ border: "1px solid var(--line)" }}
                 >
-                  {u}
+                  {t(u.tr, u.en)}
                 </span>
               ))}
             </div>

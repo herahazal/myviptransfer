@@ -95,11 +95,11 @@ export const services: Service[] = [
 export type Vehicle = {
   slug: string;
   name: string;
-  subtitle: string;
-  slogan?: string;
+  subtitle: Bi;
+  slogan?: Bi;
   description: Bi;
   features: Bi[];
-  usage: string[];
+  usage: Bi[];
   image: string;
 };
 
@@ -107,8 +107,8 @@ export const vehicles: Vehicle[] = [
   {
     slug: "mercedes-s-class",
     name: "Mercedes S-Class",
-    subtitle: "Executive Luxury",
-    slogan: "FIRST-CLASS SERVICE. EVERY JOURNEY.",
+    subtitle: { tr: "Üst Düzey Lüks", en: "Executive Luxury" },
+    slogan: { tr: "Birinci Sınıf Hizmet. Her Yolculukta.", en: "First-Class Service. Every Journey." },
     description: {
       tr: "Prestij, konfor ve mahremiyeti bir araya getiren Mercedes-Benz S-Class ile yolculuğunuzu ayrıcalıklı bir deneyime dönüştürün. Üst düzey yöneticiler, iş insanları, özel misafirler ve maksimum konfor arayan bireysel müşteriler için tasarlanmıştır.",
       en: "Mercedes-Benz S-Class brings together prestige, comfort and privacy, turning your journey into an exclusive experience. Designed for senior executives, business travelers, special guests and individual clients seeking maximum comfort.",
@@ -119,20 +119,25 @@ export const vehicles: Vehicle[] = [
       { tr: "VIP havalimanı karşılama", en: "VIP airport meet & greet" },
       { tr: "Saatlik / günlük kullanım", en: "Hourly / daily use" },
       { tr: "Otel / villa / havalimanı transferleri", en: "Hotel / villa / airport transfers" },
-      { tr: "Executive seyahatler", en: "Executive travel" },
+      { tr: "Üst düzey seyahatler", en: "Executive travel" },
       { tr: "Şehirler arası VIP transfer", en: "Intercity VIP transfer" },
       { tr: "Özel şehir turları", en: "Private city tours" },
       { tr: "Özel davet ve organizasyonlar", en: "Private events and functions" },
       { tr: "Kurumsal VIP ulaşım", en: "Corporate VIP transportation" },
     ],
-    usage: ["Airport Transfer", "Chauffeur Service", "Corporate Travel", "Wedding & Events"],
+    usage: [
+      { tr: "Havalimanı Transferi", en: "Airport Transfer" },
+      { tr: "Şoförlü Araç Hizmeti", en: "Chauffeur Service" },
+      { tr: "Kurumsal Ulaşım", en: "Corporate Travel" },
+      { tr: "Düğün & Etkinlik", en: "Wedding & Events" },
+    ],
     image: "/images/fleet/mercedes-s-class.jpeg",
   },
   {
     slug: "premium-suv",
     name: "Premium SUV",
-    subtitle: "Luxury & Comfort",
-    slogan: "Your Journey. Your SUV. Your Chauffeur.",
+    subtitle: { tr: "Lüks & Konfor", en: "Luxury & Comfort" },
+    slogan: { tr: "Sizin Yolculuğunuz. Sizin SUV'unuz. Sizin Şoförünüz.", en: "Your Journey. Your SUV. Your Chauffeur." },
     description: {
       tr: "Güç, konfor ve VIP hizmet bir arada. Şehir içi yolculuklardan havalimanı transferlerine, iş seyahatlerinden özel davetlere kadar Premium SUV araçlarımızla konforlu ve ayrıcalıklı bir ulaşım deneyimi sunuyoruz.",
       en: "Power, comfort and VIP service together. From city rides to airport transfers, business trips to private events, our Premium SUV vehicles offer a comfortable and exclusive transportation experience.",
@@ -149,13 +154,18 @@ export const vehicles: Vehicle[] = [
       { tr: "Düğün / davet", en: "Weddings / receptions" },
       { tr: "Alışveriş", en: "Shopping" },
     ],
-    usage: ["Airport Transfer", "Private Tours", "Chauffeur Service", "Wedding & Events"],
+    usage: [
+      { tr: "Havalimanı Transferi", en: "Airport Transfer" },
+      { tr: "Özel Turlar", en: "Private Tours" },
+      { tr: "Şoförlü Araç Hizmeti", en: "Chauffeur Service" },
+      { tr: "Düğün & Etkinlik", en: "Wedding & Events" },
+    ],
     image: "/images/fleet/premium-suv.jpeg",
   },
   {
     slug: "premium-vip-vito",
     name: "Premium VIP Vito",
-    subtitle: "VIP Group Travel",
+    subtitle: { tr: "VIP Grup Seyahati", en: "VIP Group Travel" },
     description: {
       tr: "Konfor, alan ve VIP hizmet bir arada. Özel yolculuklarınız için tasarlanan Premium VIP Vito, geniş iç hacmi, konforlu kabini ve özel donanımlarıyla transfer deneyimini bir üst seviyeye taşır.",
       en: "Comfort, space and VIP service in one. Designed for your private journeys, the Premium VIP Vito elevates the transfer experience with its spacious interior, comfortable cabin and premium fittings.",
@@ -163,7 +173,7 @@ export const vehicles: Vehicle[] = [
     features: [
       { tr: "Premium Mercedes-Benz Vito", en: "Premium Mercedes-Benz Vito" },
       { tr: "Geniş ve ferah yolcu alanı", en: "Spacious, roomy passenger area" },
-      { tr: "VIP / Luxury iç tasarım", en: "VIP / luxury interior design" },
+      { tr: "VIP / Lüks iç tasarım", en: "VIP / luxury interior design" },
       { tr: "Konforlu deri koltuklar", en: "Comfortable leather seats" },
       { tr: "Yıldız tavan ambiyansı", en: "Starlight headliner ambience" },
       { tr: "Araç içi TV / eğlence sistemi", en: "In-car TV / entertainment system" },
@@ -175,20 +185,23 @@ export const vehicles: Vehicle[] = [
       { tr: "Premium ses sistemi", en: "Premium sound system" },
     ],
     usage: [
-      "Airport Transfer",
-      "Chauffeur Service",
-      "Private Tours",
-      "Intercity Transfer",
-      "Business Travel",
-      "Special Events",
+      { tr: "Havalimanı Transferi", en: "Airport Transfer" },
+      { tr: "Şoförlü Araç Hizmeti", en: "Chauffeur Service" },
+      { tr: "Özel Turlar", en: "Private Tours" },
+      { tr: "Şehirlerarası Transfer", en: "Intercity Transfer" },
+      { tr: "İş Seyahati", en: "Business Travel" },
+      { tr: "Özel Etkinlikler", en: "Special Events" },
     ],
     image: "/images/fleet/premium-vip-vito.jpeg",
   },
   {
     slug: "standard-vito",
     name: "Standard Vito",
-    subtitle: "Comfort & Value",
-    slogan: "Güvenilir hizmet. Konforlu yolculuk. Doğru fiyat.",
+    subtitle: { tr: "Konfor & Uygun Fiyat", en: "Comfort & Value" },
+    slogan: {
+      tr: "Güvenilir hizmet. Konforlu yolculuk. Doğru fiyat.",
+      en: "Reliable service. Comfortable journey. The right price.",
+    },
     description: {
       tr: "Konforlu, güvenilir ve ekonomik. Kalabalık aileler, arkadaş grupları ve daha fazla bagajla seyahat eden misafirler için Standart Vito hizmetimiz, konfor ve fiyat avantajını bir araya getirir.",
       en: "Comfortable, reliable and economical. For large families, groups of friends and guests travelling with extra luggage, our Standard Vito service combines comfort with value for money.",
@@ -205,27 +218,30 @@ export const vehicles: Vehicle[] = [
       { tr: "Profesyonel şoför", en: "Professional chauffeur" },
     ],
     usage: [
-      "Airport Transfer",
-      "Private Tours",
-      "Intercity Transfer",
-      "Chauffeur Service",
-      "Group Transfer",
-      "Hotel & Villa Transfer",
+      { tr: "Havalimanı Transferi", en: "Airport Transfer" },
+      { tr: "Özel Turlar", en: "Private Tours" },
+      { tr: "Şehirlerarası Transfer", en: "Intercity Transfer" },
+      { tr: "Şoförlü Araç Hizmeti", en: "Chauffeur Service" },
+      { tr: "Grup Transferi", en: "Group Transfer" },
+      { tr: "Otel & Villa Transferi", en: "Hotel & Villa Transfer" },
     ],
     image: "/images/fleet/standard-vito.jpeg",
   },
   {
     slug: "premium-vip-sprinter",
     name: "Premium VIP Sprinter",
-    subtitle: "Luxury Group Travel",
-    slogan: "Premium araç. Profesyonel hizmet. Ayrıcalıklı yolculuk.",
+    subtitle: { tr: "Lüks Grup Seyahati", en: "Luxury Group Travel" },
+    slogan: {
+      tr: "Premium araç. Profesyonel hizmet. Ayrıcalıklı yolculuk.",
+      en: "Premium vehicle. Professional service. An exclusive journey.",
+    },
     description: {
-      tr: "Group Travel, Elevated. Geniş gruplar için ferahlık, konfor ve premium hizmeti bir araya getiren Premium VIP Sprinter, özel yolculuklarınızı daha ayrıcalıklı hale getirir.",
+      tr: "Daha Ayrıcalıklı Grup Seyahati. Geniş gruplar için ferahlık, konfor ve premium hizmeti bir araya getiren Premium VIP Sprinter, özel yolculuklarınızı daha ayrıcalıklı hale getirir.",
       en: "Group travel, elevated. Bringing together space, comfort and premium service for larger groups, the Premium VIP Sprinter makes your private journeys even more exclusive.",
     },
     features: [
       { tr: "Premium Mercedes-Benz Sprinter", en: "Premium Mercedes-Benz Sprinter" },
-      { tr: "VIP / Luxury iç tasarım", en: "VIP / luxury interior design" },
+      { tr: "VIP / Lüks iç tasarım", en: "VIP / luxury interior design" },
       { tr: "Geniş yolcu alanı", en: "Spacious passenger area" },
       { tr: "Konforlu VIP koltuklar", en: "Comfortable VIP seats" },
       { tr: "Geniş bagaj kapasitesi", en: "Large luggage capacity" },
@@ -237,20 +253,23 @@ export const vehicles: Vehicle[] = [
       { tr: "Profesyonel özel şoför", en: "Professional private chauffeur" },
     ],
     usage: [
-      "VIP Airport Transfer",
-      "Private Day Tours",
-      "Chauffeur-Driven Service",
-      "Intercity Transfer",
-      "Corporate Travel",
-      "Event & Wedding Service",
+      { tr: "VIP Havalimanı Transferi", en: "VIP Airport Transfer" },
+      { tr: "Özel Günlük Turlar", en: "Private Day Tours" },
+      { tr: "Şoförlü Araç Hizmeti", en: "Chauffeur-Driven Service" },
+      { tr: "Şehirlerarası Transfer", en: "Intercity Transfer" },
+      { tr: "Kurumsal Ulaşım", en: "Corporate Travel" },
+      { tr: "Etkinlik & Düğün Hizmeti", en: "Event & Wedding Service" },
     ],
     image: "/images/fleet/premium-vip-sprinter.jpeg",
   },
   {
     slug: "standard-sprinter",
     name: "Standard Sprinter",
-    subtitle: "Group Travel",
-    slogan: "Daha Fazla Alan. Daha Rahat Yolculuk.",
+    subtitle: { tr: "Grup Seyahati", en: "Group Travel" },
+    slogan: {
+      tr: "Daha Fazla Alan. Daha Rahat Yolculuk.",
+      en: "More Space. A More Comfortable Ride.",
+    },
     description: {
       tr: "Geniş gruplar için konforlu ve güvenilir ulaşım. Kalabalık gruplar, aileler, tur ekipleri ve fazla bagajla seyahat eden misafirler için Mercedes-Benz Sprinter ile konforlu ve güvenilir ulaşım sunuyoruz.",
       en: "Comfortable and reliable transportation for large groups. We provide comfortable, reliable transport with the Mercedes-Benz Sprinter for large groups, families, tour teams and guests travelling with extra luggage.",
@@ -267,12 +286,12 @@ export const vehicles: Vehicle[] = [
       { tr: "Profesyonel şoför", en: "Professional chauffeur" },
     ],
     usage: [
-      "Airport Transfer",
-      "Group Transfer",
-      "Private Tours",
-      "Intercity Transfer",
-      "Hotel & Villa Transfer",
-      "Event & Organization",
+      { tr: "Havalimanı Transferi", en: "Airport Transfer" },
+      { tr: "Grup Transferi", en: "Group Transfer" },
+      { tr: "Özel Turlar", en: "Private Tours" },
+      { tr: "Şehirlerarası Transfer", en: "Intercity Transfer" },
+      { tr: "Otel & Villa Transferi", en: "Hotel & Villa Transfer" },
+      { tr: "Etkinlik & Organizasyon", en: "Event & Organization" },
     ],
     image: "/images/fleet/standard-sprinter.jpeg",
   },
@@ -554,17 +573,6 @@ export const faqs: { q: Bi; a: Bi }[] = [
       tr: "Evet, rezervasyon ve müşteri desteğimiz WhatsApp üzerinden 7/24 aktif.",
       en: "Yes, our booking and customer support are active on WhatsApp around the clock.",
     },
-  },
-];
-
-export const testimonials: { name: Bi; text: Bi; rating: number }[] = [
-  {
-    name: { tr: "Misafirimiz", en: "Our Guest" },
-    text: {
-      tr: "Profesyonel şoför, güzel bir araç ve çok akıcı bir havalimanı deneyimi.",
-      en: "Professional driver, beautiful vehicle and a very smooth airport experience.",
-    },
-    rating: 5,
   },
 ];
 

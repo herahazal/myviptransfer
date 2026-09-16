@@ -11,8 +11,6 @@ import WeddingTeaser from "@/components/WeddingTeaser";
 import DestinationsPreview from "@/components/DestinationsPreview";
 import About from "@/components/About";
 import Faq from "@/components/Faq";
-import Testimonials from "@/components/Testimonials";
-import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -29,8 +27,6 @@ export default function Home() {
       <WeddingTeaser />
       <DestinationsPreview />
       <About />
-      <Testimonials />
-      <Gallery />
       <Faq />
     </>
   );

@@ -5,7 +5,6 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { whatsappLink, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -121,14 +120,6 @@ export default function Hero() {
             <div className="hero-actions">
               <a href="#booking" className="btn-gold">
                 {t("Rezervasyonunuzu Oluşturun", "Make Your Reservation")}
-              </a>
-              <a
-                href={whatsappLink(WHATSAPP_DEFAULT_MESSAGE)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp"
-              >
-                Book via WhatsApp
               </a>
             </div>
           </div>

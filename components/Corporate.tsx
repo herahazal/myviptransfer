@@ -4,7 +4,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/i18n";
 
 const items = [
-  { tr: "Executive havalimanı transferi", en: "Executive airport transfer" },
+  { tr: "Üst düzey havalimanı transferi", en: "Executive airport transfer" },
   { tr: "VIP misafir ulaşımı", en: "VIP guest transportation" },
   { tr: "İş toplantıları", en: "Business meetings" },
   { tr: "Roadshow'lar", en: "Roadshows" },
@@ -20,7 +20,7 @@ export default function Corporate() {
   return (
     <section className="section section-dark" id="corporate">
       <div className="container">
-        <p className="eyebrow">Corporate Travel</p>
+        <p className="eyebrow">{t("Kurumsal Ulaşım", "Corporate Travel")}</p>
         <h2 className="section-title">{t("Kurumsal Hizmetler", "Corporate Services")}</h2>
         <p className="section-lede">
           {t(

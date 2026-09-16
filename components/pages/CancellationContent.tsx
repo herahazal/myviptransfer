@@ -1,15 +1,18 @@
 "use client";
 
 import Bilingual from "@/components/Bilingual";
+import { useLanguage } from "@/lib/i18n";
 
 export default function CancellationContent() {
+  const { t } = useLanguage();
+
   return (
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="eyebrow">Legal</p>
+          <p className="eyebrow">{t("Yasal", "Legal")}</p>
           <h1 className="section-title" style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)" }}>
-            Cancellation Policy
+            {t("İptal Politikası", "Cancellation Policy")}
           </h1>
         </div>
       </section>

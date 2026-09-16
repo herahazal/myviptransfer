@@ -8,7 +8,7 @@ const items = [
   { icon: "🎩", tr: "Profesyonel VIP Şoför", en: "Professional VIP Chauffeur" },
   { icon: "🪧", tr: "İsimli Karşılama Hizmeti", en: "Personalized Name Sign" },
   { icon: "🧳", tr: "Bagaj Desteği", en: "Luggage Assistance" },
-  { icon: "🚘", tr: "Luxury & VIP Araç Seçenekleri", en: "Luxury & VIP Vehicle Options" },
+  { icon: "🚘", tr: "Lüks & VIP Araç Seçenekleri", en: "Luxury & VIP Vehicle Options" },
   { icon: "☎️", tr: "7/24 Rezervasyon Desteği", en: "24/7 Booking Support" },
   { icon: "🇹🇷", tr: "Türkiye Genelinde Özel Transfer", en: "Private Transfer Across Turkey" },
 ];

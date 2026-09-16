@@ -4,42 +4,42 @@ import { useLanguage } from "@/lib/i18n";
 
 const items = [
   {
-    title: { tr: "Professional Chauffeurs", en: "Professional Chauffeurs" },
+    title: { tr: "Profesyonel Şoförler", en: "Professional Chauffeurs" },
     text: {
       tr: "Deneyimli, güler yüzlü ve profesyonel şoför kadromuz.",
       en: "Our experienced, friendly and professional chauffeur team.",
     },
   },
   {
-    title: { tr: "Premium Vehicles", en: "Premium Vehicles" },
+    title: { tr: "Premium Araçlar", en: "Premium Vehicles" },
     text: {
       tr: "Özenle seçilmiş, düzenli bakımlı Mercedes-Benz araç filosu.",
       en: "A carefully selected, regularly maintained Mercedes-Benz fleet.",
     },
   },
   {
-    title: { tr: "Flight Tracking", en: "Flight Tracking" },
+    title: { tr: "Uçuş Takibi", en: "Flight Tracking" },
     text: {
       tr: "Uçuşunuz takip edilir, gecikmelerde karşılama otomatik güncellenir.",
       en: "Your flight is tracked; pickup updates automatically in case of delays.",
     },
   },
   {
-    title: { tr: "24/7 Support", en: "24/7 Support" },
+    title: { tr: "7/24 Destek", en: "24/7 Support" },
     text: {
       tr: "Rezervasyon ve müşteri desteği her zaman ulaşılabilir.",
       en: "Booking and customer support are always reachable.",
     },
   },
   {
-    title: { tr: "Private & Direct", en: "Private & Direct" },
+    title: { tr: "Özel & Doğrudan", en: "Private & Direct" },
     text: {
       tr: "Paylaşımsız, size özel doğrudan transfer.",
       en: "A private, direct transfer — never shared.",
     },
   },
   {
-    title: { tr: "Turkey Wide", en: "Turkey Wide" },
+    title: { tr: "Türkiye Geneli", en: "Turkey Wide" },
     text: {
       tr: "İstanbul, Bodrum, Antalya, Kapadokya ve Türkiye genelinde hizmet.",
       en: "Service in Istanbul, Bodrum, Antalya, Cappadocia and across Turkey.",

@@ -98,7 +98,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="btn-whatsapp mt-4 self-start"
           >
-            Book via WhatsApp
+            {t("WhatsApp'tan Yazın", "Book via WhatsApp")}
           </a>
         </div>
       )}

@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/i18n";
 const steps = [
   {
     n: "01",
-    title: { tr: "Book", en: "Book" },
+    title: { tr: "Rezervasyon", en: "Book" },
     text: {
       tr: "Tarih, saat, güzergâh ve yolcu sayısını gönderin.",
       en: "Send us the date, time, route and number of passengers.",
@@ -13,7 +13,7 @@ const steps = [
   },
   {
     n: "02",
-    title: { tr: "Confirm", en: "Confirm" },
+    title: { tr: "Onay", en: "Confirm" },
     text: {
       tr: "Araç ve fiyat bilgisi tarafınıza iletilsin.",
       en: "Vehicle and price details are sent to you.",
@@ -21,7 +21,7 @@ const steps = [
   },
   {
     n: "03",
-    title: { tr: "Meet", en: "Meet" },
+    title: { tr: "Karşılama", en: "Meet" },
     text: {
       tr: "Şoförünüz sizi belirlenen noktada karşılasın.",
       en: "Your driver meets you at the agreed point.",
@@ -29,7 +29,7 @@ const steps = [
   },
   {
     n: "04",
-    title: { tr: "Enjoy", en: "Enjoy" },
+    title: { tr: "Keyfini Çıkarın", en: "Enjoy" },
     text: {
       tr: "Konforlu yolculuğunuzun keyfini çıkarın.",
       en: "Enjoy your comfortable journey.",

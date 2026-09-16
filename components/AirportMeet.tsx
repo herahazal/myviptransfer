@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/i18n";
 const items = [
   {
     icon: "🛰️",
-    title: { tr: "Flight Tracking", en: "Flight Tracking" },
+    title: { tr: "Uçuş Takibi", en: "Flight Tracking" },
     text: {
       tr: "Uçuşunuz gerçek zamanlı takip edilir, gecikmelerde karşılama saati otomatik güncellenir.",
       en: "Your flight is tracked in real time; pickup time updates automatically in case of delays.",
@@ -13,7 +13,7 @@ const items = [
   },
   {
     icon: "🪧",
-    title: { tr: "Personalized Name Sign", en: "Personalized Name Sign" },
+    title: { tr: "Kişiye Özel İsim Tabelası", en: "Personalized Name Sign" },
     text: {
       tr: "Şoförünüz terminal çıkışında adınıza özel karşılama tabelasıyla sizi bekler.",
       en: "Your driver waits at the terminal exit with a name sign personalized just for you.",
@@ -21,7 +21,7 @@ const items = [
   },
   {
     icon: "🎩",
-    title: { tr: "Professional Chauffeur", en: "Professional Chauffeur" },
+    title: { tr: "Profesyonel Şoför", en: "Professional Chauffeur" },
     text: {
       tr: "Deneyimli, profesyonel ve güler yüzlü VIP şoförler.",
       en: "Experienced, professional and friendly VIP chauffeurs.",
@@ -29,7 +29,7 @@ const items = [
   },
   {
     icon: "🧳",
-    title: { tr: "Luggage Assistance", en: "Luggage Assistance" },
+    title: { tr: "Bagaj Desteği", en: "Luggage Assistance" },
     text: {
       tr: "Bagajlarınızla ilgilenir, araca kadar size eşlik eder.",
       en: "We take care of your luggage and escort you all the way to the vehicle.",
@@ -37,7 +37,7 @@ const items = [
   },
   {
     icon: "⏳",
-    title: { tr: "Airport Waiting", en: "Airport Waiting" },
+    title: { tr: "Havalimanında Bekleme", en: "Airport Waiting" },
     text: {
       tr: "Uçuşunuz gecikse dahi şoförünüz sizi bekler.",
       en: "Your driver waits for you even if your flight is delayed.",
@@ -45,7 +45,7 @@ const items = [
   },
   {
     icon: "🚪",
-    title: { tr: "Door-to-Door Service", en: "Door-to-Door Service" },
+    title: { tr: "Kapıdan Kapıya Hizmet", en: "Door-to-Door Service" },
     text: {
       tr: "Terminalden varış adresinize kadar kesintisiz hizmet.",
       en: "Seamless service from the terminal all the way to your destination address.",
@@ -53,7 +53,7 @@ const items = [
   },
   {
     icon: "☎️",
-    title: { tr: "24/7 Support", en: "24/7 Support" },
+    title: { tr: "7/24 Destek", en: "24/7 Support" },
     text: {
       tr: "Rezervasyon ve destek ekibimiz her zaman ulaşılabilir.",
       en: "Our booking and support team is always reachable.",
@@ -67,7 +67,7 @@ export default function AirportMeet() {
   return (
     <section className="section section-white">
       <div className="container">
-        <p className="eyebrow">VIP Meet & Greet</p>
+        <p className="eyebrow">{t("VIP Karşılama", "VIP Meet & Greet")}</p>
         <h2 className="section-title">{t("Havalimanı Karşılama", "Airport Meet & Greet")}</h2>
         <p className="section-lede">
           {t(
