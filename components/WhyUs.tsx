@@ -1,25 +1,36 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 const items = [
-  { icon: "🛬", title: "Uçuş Takibi" },
-  { icon: "⏱️", title: "Zamanında Karşılama" },
-  { icon: "🎩", title: "Profesyonel VIP Şoför" },
-  { icon: "🪧", title: "İsimli Karşılama Hizmeti" },
-  { icon: "🧳", title: "Bagaj Desteği" },
-  { icon: "🚘", title: "Luxury & VIP Araç Seçenekleri" },
-  { icon: "☎️", title: "7/24 Rezervasyon Desteği" },
-  { icon: "🇹🇷", title: "Türkiye Genelinde Özel Transfer" },
+  { icon: "🛬", tr: "Uçuş Takibi", en: "Flight Tracking" },
+  { icon: "⏱️", tr: "Zamanında Karşılama", en: "On-Time Pickup" },
+  { icon: "🎩", tr: "Profesyonel VIP Şoför", en: "Professional VIP Chauffeur" },
+  { icon: "🪧", tr: "İsimli Karşılama Hizmeti", en: "Personalized Name Sign" },
+  { icon: "🧳", tr: "Bagaj Desteği", en: "Luggage Assistance" },
+  { icon: "🚘", tr: "Luxury & VIP Araç Seçenekleri", en: "Luxury & VIP Vehicle Options" },
+  { icon: "☎️", tr: "7/24 Rezervasyon Desteği", en: "24/7 Booking Support" },
+  { icon: "🇹🇷", tr: "Türkiye Genelinde Özel Transfer", en: "Private Transfer Across Turkey" },
 ];
 
 export default function WhyUs() {
+  const { t } = useLanguage();
+
   return (
     <section className="section section-dark">
       <div className="container">
-        <p className="eyebrow">Neden myviptransfer?</p>
-        <h2 className="section-title">Seyahatinizin İlk Anından İtibaren Ayrıcalıklı</h2>
+        <p className="eyebrow">{t("Neden myviptransfer?", "Why myviptransfer?")}</p>
+        <h2 className="section-title">
+          {t(
+            "Seyahatinizin İlk Anından İtibaren Ayrıcalıklı",
+            "Exclusive From the Very First Moment of Your Trip",
+          )}
+        </h2>
         <div className="why-grid">
           {items.map((item) => (
-            <div className="why-item" key={item.title}>
+            <div className="why-item" key={item.tr}>
               <span className="why-item-icon">{item.icon}</span>
-              <p className="why-item-title">{item.title}</p>
+              <p className="why-item-title">{t(item.tr, item.en)}</p>
             </div>
           ))}
         </div>

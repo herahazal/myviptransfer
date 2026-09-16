@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "@/lib/content";
 import { whatsappLink, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/whatsapp";
+import { useLanguage } from "@/lib/i18n";
 import LanguageToggle from "./LanguageToggle";
 
 export default function Header() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -38,20 +40,20 @@ export default function Header() {
         <nav className="site-header-nav">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href}>
-              {link.label}
+              {t(link.label.tr, link.label.en)}
             </Link>
           ))}
         </nav>
 
         <div className="site-header-actions">
           <div className="site-header-meta">
-            <p className="site-header-label">Premium Transfer Hizmeti</p>
+            <p className="site-header-label">{t("Premium Transfer Hizmeti", "Premium Transfer Service")}</p>
             <LanguageToggle />
           </div>
           <button
             type="button"
             className="site-header-menu-btn"
-            aria-label="Menüyü aç"
+            aria-label={t("Menüyü aç", "Open menu")}
             onClick={() => setOpen(true)}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -72,7 +74,7 @@ export default function Header() {
             />
             <button
               type="button"
-              aria-label="Menüyü kapat"
+              aria-label={t("Menüyü kapat", "Close menu")}
               onClick={() => setOpen(false)}
               className="site-header-menu-btn"
             >
@@ -83,14 +85,17 @@ export default function Header() {
           </div>
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>
-              {link.label}
+              {t(link.label.tr, link.label.en)}
             </Link>
           ))}
+          <div className="mt-8 self-start">
+            <LanguageToggle />
+          </div>
           <a
             href={whatsappLink(WHATSAPP_DEFAULT_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp mt-8 self-start"
+            className="btn-whatsapp mt-4 self-start"
           >
             Book via WhatsApp
           </a>

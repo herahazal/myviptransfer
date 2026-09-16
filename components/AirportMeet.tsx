@@ -1,32 +1,88 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 const items = [
-  { icon: "🛰️", title: "Flight Tracking", text: "Uçuşunuz gerçek zamanlı takip edilir, gecikmelerde karşılama saati otomatik güncellenir." },
-  { icon: "🪧", title: "Personalized Name Sign", text: "Şoförünüz terminal çıkışında adınıza özel karşılama tabelasıyla sizi bekler." },
-  { icon: "🎩", title: "Professional Chauffeur", text: "Deneyimli, profesyonel ve güler yüzlü VIP şoförler." },
-  { icon: "🧳", title: "Luggage Assistance", text: "Bagajlarınızla ilgilenir, araca kadar size eşlik eder." },
-  { icon: "⏳", title: "Airport Waiting", text: "Uçuşunuz gecikse dahi şoförünüz sizi bekler." },
-  { icon: "🚪", title: "Door-to-Door Service", text: "Terminalden varış adresinize kadar kesintisiz hizmet." },
-  { icon: "☎️", title: "24/7 Support", text: "Rezervasyon ve destek ekibimiz her zaman ulaşılabilir." },
+  {
+    icon: "🛰️",
+    title: { tr: "Flight Tracking", en: "Flight Tracking" },
+    text: {
+      tr: "Uçuşunuz gerçek zamanlı takip edilir, gecikmelerde karşılama saati otomatik güncellenir.",
+      en: "Your flight is tracked in real time; pickup time updates automatically in case of delays.",
+    },
+  },
+  {
+    icon: "🪧",
+    title: { tr: "Personalized Name Sign", en: "Personalized Name Sign" },
+    text: {
+      tr: "Şoförünüz terminal çıkışında adınıza özel karşılama tabelasıyla sizi bekler.",
+      en: "Your driver waits at the terminal exit with a name sign personalized just for you.",
+    },
+  },
+  {
+    icon: "🎩",
+    title: { tr: "Professional Chauffeur", en: "Professional Chauffeur" },
+    text: {
+      tr: "Deneyimli, profesyonel ve güler yüzlü VIP şoförler.",
+      en: "Experienced, professional and friendly VIP chauffeurs.",
+    },
+  },
+  {
+    icon: "🧳",
+    title: { tr: "Luggage Assistance", en: "Luggage Assistance" },
+    text: {
+      tr: "Bagajlarınızla ilgilenir, araca kadar size eşlik eder.",
+      en: "We take care of your luggage and escort you all the way to the vehicle.",
+    },
+  },
+  {
+    icon: "⏳",
+    title: { tr: "Airport Waiting", en: "Airport Waiting" },
+    text: {
+      tr: "Uçuşunuz gecikse dahi şoförünüz sizi bekler.",
+      en: "Your driver waits for you even if your flight is delayed.",
+    },
+  },
+  {
+    icon: "🚪",
+    title: { tr: "Door-to-Door Service", en: "Door-to-Door Service" },
+    text: {
+      tr: "Terminalden varış adresinize kadar kesintisiz hizmet.",
+      en: "Seamless service from the terminal all the way to your destination address.",
+    },
+  },
+  {
+    icon: "☎️",
+    title: { tr: "24/7 Support", en: "24/7 Support" },
+    text: {
+      tr: "Rezervasyon ve destek ekibimiz her zaman ulaşılabilir.",
+      en: "Our booking and support team is always reachable.",
+    },
+  },
 ];
 
 export default function AirportMeet() {
+  const { t } = useLanguage();
+
   return (
     <section className="section section-white">
       <div className="container">
         <p className="eyebrow">VIP Meet & Greet</p>
-        <h2 className="section-title">Havalimanı Karşılama</h2>
+        <h2 className="section-title">{t("Havalimanı Karşılama", "Airport Meet & Greet")}</h2>
         <p className="section-lede">
-          Terminal çıkışında profesyonel şoförümüz sizi adınıza özel
-          karşılama tabelasıyla karşılar, bagajlarınıza yardımcı olur ve
-          sizi konforlu VIP aracınıza kadar eşlik eder.
+          {t(
+            "Terminal çıkışında profesyonel şoförümüz sizi adınıza özel karşılama tabelasıyla karşılar, bagajlarınıza yardımcı olur ve sizi konforlu VIP aracınıza kadar eşlik eder.",
+            "At the terminal exit, our professional chauffeur greets you with a name sign personalized for you, assists with your luggage and escorts you to your comfortable VIP vehicle.",
+          )}
         </p>
         <div className="meet-grid">
           {items.map((item) => (
-            <div className="meet-item" key={item.title}>
+            <div className="meet-item" key={item.title.tr}>
               <span className="service-icon">{item.icon}</span>
               <p className="fleet-card-title" style={{ fontSize: "1.15rem" }}>
-                {item.title}
+                {t(item.title.tr, item.title.en)}
               </p>
-              <p className="service-summary">{item.text}</p>
+              <p className="service-summary">{t(item.text.tr, item.text.en)}</p>
             </div>
           ))}
         </div>

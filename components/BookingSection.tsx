@@ -3,10 +3,12 @@
 import { FormEvent, useState } from "react";
 import { vehicles } from "@/lib/content";
 import { whatsappLink } from "@/lib/whatsapp";
+import { useLanguage } from "@/lib/i18n";
 
 type Tab = "book" | "quote";
 
 export default function BookingSection() {
+  const { t } = useLanguage();
   const [tab, setTab] = useState<Tab>("book");
 
   function handleBookSubmit(e: FormEvent<HTMLFormElement>) {
@@ -54,12 +56,13 @@ export default function BookingSection() {
   return (
     <section className="section section-dark" id="booking">
       <div className="container">
-        <p className="eyebrow">Online Rezervasyon</p>
-        <h2 className="section-title">Seyahatinize VIP Bir Başlangıç Yapın</h2>
+        <p className="eyebrow">{t("Online Rezervasyon", "Online Booking")}</p>
+        <h2 className="section-title">{t("Seyahatinize VIP Bir Başlangıç Yapın", "Give Your Trip a VIP Start")}</h2>
         <p className="section-lede">
-          Rezervasyonunuzu şimdi oluşturun ve havalimanından varış noktanıza
-          kadar konforun keyfini çıkarın. Özel turlar, düğün, günlük araç ve
-          şehirler arası seyahatler için fiyat teklifi talep edebilirsiniz.
+          {t(
+            "Rezervasyonunuzu şimdi oluşturun ve havalimanından varış noktanıza kadar konforun keyfini çıkarın. Özel turlar, düğün, günlük araç ve şehirler arası seyahatler için fiyat teklifi talep edebilirsiniz.",
+            "Make your reservation now and enjoy comfort from the airport all the way to your destination. Request a quote for private tours, weddings, daily vehicles and intercity travel.",
+          )}
         </p>
 
         <div className="form-tabs">
@@ -68,56 +71,68 @@ export default function BookingSection() {
             className={`form-tab${tab === "book" ? " is-active" : ""}`}
             onClick={() => setTab("book")}
           >
-            Book Your Transfer
+            {t("Transfer Rezervasyonu", "Book Your Transfer")}
           </button>
           <button
             type="button"
             className={`form-tab${tab === "quote" ? " is-active" : ""}`}
             onClick={() => setTab("quote")}
           >
-            Request a Quote
+            {t("Fiyat Teklifi İste", "Request a Quote")}
           </button>
         </div>
 
         {tab === "book" ? (
           <form className="form-grid" onSubmit={handleBookSubmit}>
             <div>
-              <label className="form-label" htmlFor="pickup">Pickup Location</label>
-              <input className="form-input" id="pickup" name="pickup" required placeholder="Örn. Istanbul Airport (IST)" />
+              <label className="form-label" htmlFor="pickup">{t("Alış Noktası", "Pickup Location")}</label>
+              <input
+                className="form-input"
+                id="pickup"
+                name="pickup"
+                required
+                placeholder={t("Örn. Istanbul Airport (IST)", "e.g. Istanbul Airport (IST)")}
+              />
             </div>
             <div>
-              <label className="form-label" htmlFor="destination">Destination</label>
-              <input className="form-input" id="destination" name="destination" required placeholder="Örn. Şişli, İstanbul" />
+              <label className="form-label" htmlFor="destination">{t("Varış Noktası", "Destination")}</label>
+              <input
+                className="form-input"
+                id="destination"
+                name="destination"
+                required
+                placeholder={t("Örn. Şişli, İstanbul", "e.g. Şişli, Istanbul")}
+              />
             </div>
             <div>
-              <label className="form-label" htmlFor="date">Date</label>
+              <label className="form-label" htmlFor="date">{t("Tarih", "Date")}</label>
               <input className="form-input" id="date" name="date" type="date" required />
             </div>
             <div>
-              <label className="form-label" htmlFor="time">Time</label>
+              <label className="form-label" htmlFor="time">{t("Saat", "Time")}</label>
               <input className="form-input" id="time" name="time" type="time" required />
             </div>
             <div>
-              <label className="form-label" htmlFor="passengers">Passengers</label>
+              <label className="form-label" htmlFor="passengers">{t("Yolcu Sayısı", "Passengers")}</label>
               <input className="form-input" id="passengers" name="passengers" type="number" min={1} required placeholder="2" />
             </div>
             <div>
-              <label className="form-label" htmlFor="vehicle">Vehicle</label>
+              <label className="form-label" htmlFor="vehicle">{t("Araç", "Vehicle")}</label>
               <select className="form-select" id="vehicle" name="vehicle" defaultValue="">
-                <option value="" disabled>Araç seçin</option>
+                <option value="" disabled>{t("Araç seçin", "Select a vehicle")}</option>
                 {vehicles.map((v) => (
                   <option key={v.slug} value={v.name}>{v.name}</option>
                 ))}
-                <option value="Fark etmez">Fark etmez / Önerin</option>
+                <option value="Fark etmez">{t("Fark etmez / Önerin", "No preference / Suggest one")}</option>
               </select>
             </div>
             <div>
-              <label className="form-label" htmlFor="flight">Flight Number</label>
+              <label className="form-label" htmlFor="flight">{t("Uçuş Numarası", "Flight Number")}</label>
               <input className="form-input" id="flight" name="flight" placeholder="TK1234" />
             </div>
             <div>
-              <label className="form-label" htmlFor="name">Name</label>
-              <input className="form-input" id="name" name="name" required placeholder="Ad Soyad" />
+              <label className="form-label" htmlFor="name">{t("Ad Soyad", "Name")}</label>
+              <input className="form-input" id="name" name="name" required placeholder={t("Ad Soyad", "Full name")} />
             </div>
             <div>
               <label className="form-label" htmlFor="phone">WhatsApp</label>
@@ -125,20 +140,22 @@ export default function BookingSection() {
             </div>
             <div>
               <label className="form-label" htmlFor="email">Email</label>
-              <input className="form-input" id="email" name="email" type="email" placeholder="ornek@mail.com" />
+              <input className="form-input" id="email" name="email" type="email" placeholder={t("ornek@mail.com", "you@example.com")} />
             </div>
 
             <div className="form-field-wide form-foot">
-              <button type="submit" className="btn-gold">Teklif Al</button>
-              <span className="form-note">Gizli ücret yok — fiyatınız onaydan önce bildirilir.</span>
+              <button type="submit" className="btn-gold">{t("Teklif Al", "Get a Quote")}</button>
+              <span className="form-note">
+                {t("Gizli ücret yok — fiyatınız onaydan önce bildirilir.", "No hidden fees — your price is confirmed before booking.")}
+              </span>
             </div>
           </form>
         ) : (
           <form className="form-grid" onSubmit={handleQuoteSubmit}>
             <div>
-              <label className="form-label" htmlFor="q-service">Service</label>
+              <label className="form-label" htmlFor="q-service">{t("Hizmet", "Service")}</label>
               <select className="form-select" id="q-service" name="service" defaultValue="">
-                <option value="" disabled>Hizmet seçin</option>
+                <option value="" disabled>{t("Hizmet seçin", "Select a service")}</option>
                 <option>Private Tour</option>
                 <option>Wedding & Events</option>
                 <option>Chauffeur-Driven Car Service</option>
@@ -147,20 +164,26 @@ export default function BookingSection() {
               </select>
             </div>
             <div>
-              <label className="form-label" htmlFor="q-route">Route / Destination</label>
-              <input className="form-input" id="q-route" name="route" required placeholder="Örn. İstanbul → Bodrum" />
+              <label className="form-label" htmlFor="q-route">{t("Güzergâh / Varış Noktası", "Route / Destination")}</label>
+              <input
+                className="form-input"
+                id="q-route"
+                name="route"
+                required
+                placeholder={t("Örn. İstanbul → Bodrum", "e.g. Istanbul → Bodrum")}
+              />
             </div>
             <div>
-              <label className="form-label" htmlFor="q-date">Date</label>
+              <label className="form-label" htmlFor="q-date">{t("Tarih", "Date")}</label>
               <input className="form-input" id="q-date" name="date" type="date" required />
             </div>
             <div>
-              <label className="form-label" htmlFor="q-passengers">Passengers</label>
+              <label className="form-label" htmlFor="q-passengers">{t("Yolcu Sayısı", "Passengers")}</label>
               <input className="form-input" id="q-passengers" name="passengers" type="number" min={1} placeholder="4" />
             </div>
             <div>
-              <label className="form-label" htmlFor="q-name">Name</label>
-              <input className="form-input" id="q-name" name="name" required placeholder="Ad Soyad" />
+              <label className="form-label" htmlFor="q-name">{t("Ad Soyad", "Name")}</label>
+              <input className="form-input" id="q-name" name="name" required placeholder={t("Ad Soyad", "Full name")} />
             </div>
             <div>
               <label className="form-label" htmlFor="q-phone">WhatsApp</label>
@@ -168,16 +191,23 @@ export default function BookingSection() {
             </div>
             <div className="form-field-wide">
               <label className="form-label" htmlFor="q-email">Email</label>
-              <input className="form-input" id="q-email" name="email" type="email" placeholder="ornek@mail.com" />
+              <input className="form-input" id="q-email" name="email" type="email" placeholder={t("ornek@mail.com", "you@example.com")} />
             </div>
             <div className="form-field-wide">
-              <label className="form-label" htmlFor="q-notes">Notes</label>
-              <textarea className="form-textarea" id="q-notes" name="notes" placeholder="Programınız hakkında ek bilgi verin" />
+              <label className="form-label" htmlFor="q-notes">{t("Notlar", "Notes")}</label>
+              <textarea
+                className="form-textarea"
+                id="q-notes"
+                name="notes"
+                placeholder={t("Programınız hakkında ek bilgi verin", "Tell us more about your plans")}
+              />
             </div>
 
             <div className="form-field-wide form-foot">
-              <button type="submit" className="btn-gold">Teklif Talebini Gönder</button>
-              <span className="form-note">Ekibimiz en kısa sürede WhatsApp üzerinden dönüş yapar.</span>
+              <button type="submit" className="btn-gold">{t("Teklif Talebini Gönder", "Send Quote Request")}</button>
+              <span className="form-note">
+                {t("Ekibimiz en kısa sürede WhatsApp üzerinden dönüş yapar.", "Our team will get back to you on WhatsApp as soon as possible.")}
+              </span>
             </div>
           </form>
         )}
@@ -189,34 +219,42 @@ export default function BookingSection() {
 }
 
 function Pricing() {
+  const { t } = useLanguage();
+
   return (
     <div className="mt-20">
-      <p className="eyebrow">Fiyatlandırma</p>
+      <p className="eyebrow">{t("Fiyatlandırma", "Pricing")}</p>
       <h3 className="section-title" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}>
-        Şeffaf, Önceden Bildirilen Fiyatlar
+        {t("Şeffaf, Önceden Bildirilen Fiyatlar", "Transparent, Upfront Pricing")}
       </h3>
       <div className="pricing-grid">
         <div className="pricing-card">
-          <p className="pricing-card-title">Fixed Price</p>
+          <p className="pricing-card-title">{t("Sabit Fiyat", "Fixed Price")}</p>
           <p className="pricing-card-note">
-            Popüler havalimanı rotalarında sabit fiyat garantisi. Rezervasyon
-            onayında fiyatınızı görürsünüz — sürpriz ek ücret yoktur.
+            {t(
+              "Popüler havalimanı rotalarında sabit fiyat garantisi. Rezervasyon onayında fiyatınızı görürsünüz — sürpriz ek ücret yoktur.",
+              "Guaranteed fixed pricing on popular airport routes. You see your price at booking confirmation — no surprise extra charges.",
+            )}
           </p>
         </div>
         <div className="pricing-card">
-          <p className="pricing-card-title">Request a Quote</p>
+          <p className="pricing-card-title">{t("Fiyat Teklifi İste", "Request a Quote")}</p>
           <p className="pricing-card-note">
-            Özel turlar, düğünler, günlük şoförlü araç ve şehirler arası
-            seyahatler için programınıza özel fiyat teklifi hazırlanır.
+            {t(
+              "Özel turlar, düğünler, günlük şoförlü araç ve şehirler arası seyahatler için programınıza özel fiyat teklifi hazırlanır.",
+              "For private tours, weddings, daily chauffeur service and intercity travel, we prepare a quote tailored to your itinerary.",
+            )}
           </p>
         </div>
       </div>
       <div className="pricing-banner">
         <span>🔒</span>
         <span>
-          <strong>Gizli ücret yok.</strong> Tüm fiyatlarımız rezervasyon
-          onayından önce açıkça bildirilir; fiyata dahil ve dahil olmayan
-          hizmetler booking sayfasında belirtilir.
+          <strong>{t("Gizli ücret yok.", "No hidden fees.")}</strong>{" "}
+          {t(
+            "Tüm fiyatlarımız rezervasyon onayından önce açıkça bildirilir; fiyata dahil ve dahil olmayan hizmetler booking sayfasında belirtilir.",
+            "All our prices are clearly stated before booking confirmation; what's included and excluded is noted on the booking page.",
+          )}
         </span>
       </div>
     </div>

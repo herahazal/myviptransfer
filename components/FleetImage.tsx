@@ -1,5 +1,7 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { imageExists } from "@/lib/media";
 
 export default function FleetImage({
   src,
@@ -10,7 +12,9 @@ export default function FleetImage({
   alt: string;
   sizes?: string;
 }) {
-  if (!imageExists(src)) {
+  const [errored, setErrored] = useState(false);
+
+  if (errored) {
     return (
       <div className="fleet-placeholder">
         <svg viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,6 +43,7 @@ export default function FleetImage({
       fill
       sizes={sizes ?? "(min-width: 1100px) 33vw, (min-width: 640px) 50vw, 100vw"}
       style={{ objectFit: "cover" }}
+      onError={() => setErrored(true)}
     />
   );
 }

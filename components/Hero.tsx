@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { whatsappLink, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/whatsapp";
+import { useLanguage } from "@/lib/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,7 @@ const PIN_VIEWPORTS = 2.2;
 const PIN_VIEWPORTS_MOBILE = 1.8;
 
 export default function Hero() {
+  const { t } = useLanguage();
   const rootRef = useRef<HTMLDivElement | null>(null);
   const copyRef = useRef<HTMLDivElement | null>(null);
 
@@ -86,7 +88,10 @@ export default function Hero() {
         <div className="hero-sky">
           <Image
             src="/images/hero-family.png"
-            alt="myviptransfer VIP şoförü ailenin bagajlarına yardımcı oluyor"
+            alt={t(
+              "myviptransfer VIP şoförü ailenin bagajlarına yardımcı oluyor",
+              "myviptransfer VIP chauffeur helping a family with their luggage",
+            )}
             fill
             priority
             sizes="100vw"
@@ -100,19 +105,22 @@ export default function Hero() {
 
         <div className="hero-header">
           <div ref={copyRef}>
-            <p className="hero-eyebrow">Premium Transfer Hizmeti</p>
+            <p className="hero-eyebrow">{t("Premium Transfer Hizmeti", "Premium Transfer Service")}</p>
             <h1 className="hero-title">
-              Havalimanından Varış Noktanıza, Ayrıcalıklı Bir Karşılama
+              {t(
+                "Havalimanından Varış Noktanıza, Ayrıcalıklı Bir Karşılama",
+                "From the Airport to Your Destination, an Exclusive Welcome",
+              )}
             </h1>
             <p className="hero-subtitle">
-              Türkiye&rsquo;ye indiğiniz andan itibaren konfor, güven ve
-              profesyonellik sizinle. myviptransfer; İstanbul, Bodrum ve
-              Türkiye&rsquo;nin farklı destinasyonlarında havalimanı
-              karşılama ve özel VIP transfer hizmeti sunar.
+              {t(
+                "Türkiye’ye indiğiniz andan itibaren konfor, güven ve profesyonellik sizinle. myviptransfer; İstanbul, Bodrum ve Türkiye’nin farklı destinasyonlarında havalimanı karşılama ve özel VIP transfer hizmeti sunar.",
+                "From the moment you land in Turkey, comfort, trust and professionalism are with you. myviptransfer offers airport meet & greet and private VIP transfer services in Istanbul, Bodrum and destinations across Turkey.",
+              )}
             </p>
             <div className="hero-actions">
               <a href="#booking" className="btn-gold">
-                Rezervasyonunuzu Oluşturun
+                {t("Rezervasyonunuzu Oluşturun", "Make Your Reservation")}
               </a>
               <a
                 href={whatsappLink(WHATSAPP_DEFAULT_MESSAGE)}
@@ -126,7 +134,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <p className="hero-scroll-hint">Kaydırın</p>
+        <p className="hero-scroll-hint">{t("Kaydırın", "Scroll")}</p>
       </section>
     </div>
   );

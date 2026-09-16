@@ -1,20 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
-/**
- * Presentational TR/EN switch — the site's content is Turkish-only for now,
- * so this only tracks which option looks active; it doesn't translate the
- * page. Placeholder for a future full i18n pass.
- */
 export default function LanguageToggle() {
-  const [lang, setLang] = useState<"tr" | "en">("tr");
+  const { lang, toggle } = useLanguage();
 
   return (
     <button
       type="button"
       className="lang-toggle"
-      onClick={() => setLang((l) => (l === "tr" ? "en" : "tr"))}
+      onClick={toggle}
       aria-label={lang === "tr" ? "Switch to English" : "Türkçeye geç"}
     >
       <span className={lang === "tr" ? "is-active" : undefined}>TR</span>
