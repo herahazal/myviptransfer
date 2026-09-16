@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "@/lib/content";
 import { whatsappLink, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/whatsapp";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,14 +44,10 @@ export default function Header() {
         </nav>
 
         <div className="site-header-actions">
-          <a
-            href={whatsappLink(WHATSAPP_DEFAULT_MESSAGE)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-whatsapp site-header-whatsapp"
-          >
-            Book via WhatsApp
-          </a>
+          <div className="site-header-meta">
+            <p className="site-header-label">Premium Transfer Hizmeti</p>
+            <LanguageToggle />
+          </div>
           <button
             type="button"
             className="site-header-menu-btn"

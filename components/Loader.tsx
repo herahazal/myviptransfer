@@ -8,7 +8,7 @@ const useIsomorphicLayoutEffect =
 
 /** Blocking assets: the hero photo + window plate the intro animates, plus
  *  the loader's own logo. */
-const CRITICAL = ["/images/hero-family.png", "/window.png", "/images/logo/logo-transparent.png"];
+const CRITICAL = ["/images/hero-family.png", "/window.png", "/images/logo/logo-monogram-favicon.png"];
 
 const MAX_HOLD_MS = 5000;
 const MIN_HOLD_MS = 700;
@@ -82,10 +82,10 @@ export default function Loader() {
     <div className={`site-loader${done ? " is-done" : ""}`} aria-hidden={done}>
       <div className="site-loader-inner">
         <NextImage
-          src="/images/logo/logo-transparent.png"
+          src="/images/logo/logo-monogram-favicon.png"
           alt="myviptransfer"
-          width={900}
-          height={280}
+          width={512}
+          height={512}
           priority
           className="site-loader-logo"
         />

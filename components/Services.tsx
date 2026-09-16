@@ -3,7 +3,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 
 export default function Services() {
   return (
-    <section className="section" id="services">
+    <section className="section section-white" id="services">
       <div className="container">
         <p className="eyebrow">Hizmetlerimiz</p>
         <h2 className="section-title">Her Yolculuğa Özel Bir Çözüm</h2>

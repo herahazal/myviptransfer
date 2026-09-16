@@ -10,7 +10,7 @@ const items = [
 
 export default function AirportMeet() {
   return (
-    <section className="section">
+    <section className="section section-white">
       <div className="container">
         <p className="eyebrow">VIP Meet & Greet</p>
         <h2 className="section-title">Havalimanı Karşılama</h2>

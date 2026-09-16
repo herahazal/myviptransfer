@@ -129,7 +129,7 @@ export default function BookingSection() {
             </div>
 
             <div className="form-field-wide form-foot">
-              <button type="submit" className="btn-gold">Rezervasyonu WhatsApp&apos;a Gönder</button>
+              <button type="submit" className="btn-gold">Teklif Al</button>
               <span className="form-note">Gizli ücret yok — fiyatınız onaydan önce bildirilir.</span>
             </div>
           </form>
