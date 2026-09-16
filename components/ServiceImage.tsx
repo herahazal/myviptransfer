@@ -20,7 +20,6 @@ export default function ServiceImage({ src, alt }: { src: string; alt: string })
           onError={() => setErrored(true)}
         />
       )}
-      <div className="service-card-media-overlay" />
     </div>
   );
 }

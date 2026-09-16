@@ -626,17 +626,6 @@ a {
   background: linear-gradient(135deg, rgba(201, 164, 92, 0.45) 0%, rgba(10, 14, 23, 0.15) 100%);
 }
 
-/* Soft cream wash + light blur over the photo, so it reads as a quiet
-   backdrop — the card's own title/description below stay fully crisp. */
-.service-card-media-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(247, 244, 238, 0.18);
-  backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(2.5px);
-  pointer-events: none;
-}
-
 .service-icon {
   display: inline-flex;
   align-items: center;
