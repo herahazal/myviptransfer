@@ -23,8 +23,11 @@ export default function Fleet() {
         <div className="fleet-grid">
           {vehicles.map((vehicle) => (
             <Link href={`/fleet/${vehicle.slug}`} className="fleet-card" key={vehicle.slug}>
-              <div className="fleet-card-media">
-                <FleetImage src={vehicle.image} alt={vehicle.name} />
+              <div className="fleet-card-media fleet-card-media-fade">
+                <FleetImage
+                  src={vehicle.image}
+                  alt={t(`${vehicle.name} VIP transfer aracı`, `${vehicle.name} VIP transfer vehicle`)}
+                />
               </div>
               <div className="fleet-card-body">
                 <p className="fleet-card-subtitle">{vehicle.subtitle}</p>

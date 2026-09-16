@@ -13,7 +13,10 @@ export default function VehicleContent({ vehicle }: { vehicle: Vehicle }) {
     <section className="section" style={{ paddingTop: "8rem" }}>
       <div className="container grid gap-10 lg:grid-cols-2 lg:items-start">
         <div className="fleet-card-media" style={{ aspectRatio: "4/3" }}>
-          <FleetImage src={vehicle.image} alt={vehicle.name} />
+          <FleetImage
+            src={vehicle.image}
+            alt={t(`${vehicle.name} VIP transfer aracı`, `${vehicle.name} VIP transfer vehicle`)}
+          />
         </div>
 
         <div>

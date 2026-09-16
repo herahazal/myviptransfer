@@ -126,7 +126,7 @@ export const vehicles: Vehicle[] = [
       { tr: "Kurumsal VIP ulaşım", en: "Corporate VIP transportation" },
     ],
     usage: ["Airport Transfer", "Chauffeur Service", "Corporate Travel", "Wedding & Events"],
-    image: "/images/fleet/mercedes-s-class.jpg",
+    image: "/images/fleet/mercedes-s-class.jpeg",
   },
   {
     slug: "premium-suv",
@@ -150,7 +150,7 @@ export const vehicles: Vehicle[] = [
       { tr: "Alışveriş", en: "Shopping" },
     ],
     usage: ["Airport Transfer", "Private Tours", "Chauffeur Service", "Wedding & Events"],
-    image: "/images/fleet/premium-suv.jpg",
+    image: "/images/fleet/premium-suv.jpeg",
   },
   {
     slug: "premium-vip-vito",
@@ -182,7 +182,7 @@ export const vehicles: Vehicle[] = [
       "Business Travel",
       "Special Events",
     ],
-    image: "/images/fleet/premium-vip-vito.jpg",
+    image: "/images/fleet/premium-vip-vito.jpeg",
   },
   {
     slug: "standard-vito",
@@ -212,7 +212,7 @@ export const vehicles: Vehicle[] = [
       "Group Transfer",
       "Hotel & Villa Transfer",
     ],
-    image: "/images/fleet/standard-vito.jpg",
+    image: "/images/fleet/standard-vito.jpeg",
   },
   {
     slug: "premium-vip-sprinter",
@@ -244,7 +244,7 @@ export const vehicles: Vehicle[] = [
       "Corporate Travel",
       "Event & Wedding Service",
     ],
-    image: "/images/fleet/premium-vip-sprinter.jpg",
+    image: "/images/fleet/premium-vip-sprinter.jpeg",
   },
   {
     slug: "standard-sprinter",
@@ -274,7 +274,7 @@ export const vehicles: Vehicle[] = [
       "Hotel & Villa Transfer",
       "Event & Organization",
     ],
-    image: "/images/fleet/standard-sprinter.jpg",
+    image: "/images/fleet/standard-sprinter.jpeg",
   },
 ];
 
