@@ -208,7 +208,12 @@ a {
 }
 
 .site-header-logo img {
-  height: 40px;
+  height: 60px;
+  width: auto;
+}
+
+.mobile-nav-logo {
+  height: 66px;
   width: auto;
 }
 

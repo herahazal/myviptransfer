@@ -29,10 +29,10 @@ export default function Header() {
       <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
         <Link href="/" className="site-header-logo" aria-label="myviptransfer">
           <Image
-            src="/images/logo/logo-transparent.png"
+            src="/images/logo/logo-monogram-transparent.png"
             alt="myviptransfer"
-            width={160}
-            height={50}
+            width={90}
+            height={60}
             priority
           />
         </Link>
@@ -67,10 +67,11 @@ export default function Header() {
         <div className="mobile-nav">
           <div className="flex items-center justify-between mb-8">
             <Image
-              src="/images/logo/logo-transparent.png"
+              src="/images/logo/logo-monogram-transparent.png"
               alt="myviptransfer"
-              width={140}
-              height={44}
+              width={99}
+              height={66}
+              className="mobile-nav-logo"
             />
             <button
               type="button"
