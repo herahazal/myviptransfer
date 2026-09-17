@@ -19,7 +19,7 @@ export default function VehicleContent({ vehicle }: { vehicle: Vehicle }) {
           />
         </div>
 
-        <div>
+        <div className="vehicle-detail-info">
           <p className="eyebrow">{t(vehicle.subtitle.tr, vehicle.subtitle.en)}</p>
           <h1 className="section-title" style={{ fontSize: "clamp(2.2rem, 4vw, 3.2rem)" }}>
             {vehicle.name}
@@ -31,7 +31,7 @@ export default function VehicleContent({ vehicle }: { vehicle: Vehicle }) {
           )}
           <p className="section-lede">{t(vehicle.description.tr, vehicle.description.en)}</p>
 
-          <div className="mt-8">
+          <div className="vehicle-detail-block">
             <p className="footer-heading" style={{ color: "var(--gold-dim)" }}>{t("Özellikler", "Features")}</p>
             <ul className="service-points mt-3">
               {vehicle.features.map((f) => (
@@ -40,22 +40,18 @@ export default function VehicleContent({ vehicle }: { vehicle: Vehicle }) {
             </ul>
           </div>
 
-          <div className="mt-8">
+          <div className="vehicle-detail-block vehicle-detail-block-wide">
             <p className="footer-heading" style={{ color: "var(--gold-dim)" }}>{t("Kullanım Alanları", "Use Cases")}</p>
-            <div className="flex flex-wrap gap-2 mt-3">
+            <div className="vehicle-usage-tags">
               {vehicle.usage.map((u) => (
-                <span
-                  key={u.tr}
-                  className="text-xs font-semibold uppercase tracking-wide px-3 py-1.5"
-                  style={{ border: "1px solid var(--line)" }}
-                >
+                <span className="vehicle-usage-tag" key={u.tr}>
                   {t(u.tr, u.en)}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="vehicle-detail-actions">
             <Link href="/#booking" className="btn-gold">{t("Bu Araçla Rezervasyon Yapın", "Book With This Vehicle")}</Link>
             <a
               href={whatsappLink(`Merhaba, ${vehicle.name} hakkında bilgi almak istiyorum.`)}

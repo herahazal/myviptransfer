@@ -16,7 +16,7 @@ export async function generateMetadata({
   const vehicle = vehicles.find((v) => v.slug === slug);
   if (!vehicle) return {};
   return {
-    title: `${vehicle.name} — ${vehicle.subtitle}`,
+    title: `${vehicle.name} — ${vehicle.subtitle.tr}`,
     description: vehicle.description.tr,
   };
 }
