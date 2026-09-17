@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { navLinks } from "@/lib/content";
 import { whatsappLink, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/whatsapp";
 import { useLanguage } from "@/lib/i18n";
@@ -10,6 +11,7 @@ import LanguageToggle from "./LanguageToggle";
 
 export default function Header() {
   const { t } = useLanguage();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -24,9 +26,16 @@ export default function Header() {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
+  // Only the homepage has a dark hero image behind the header at scroll
+  // position 0. Every other route opens straight onto a light body
+  // background, so the header's nav links, TR/EN toggle and hamburger
+  // icon (all styled light-on-dark) need the solid backdrop immediately
+  // rather than waiting for the scroll threshold.
+  const solid = scrolled || pathname !== "/";
+
   return (
     <>
-      <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+      <header className={`site-header${solid ? " is-scrolled" : ""}`}>
         <Link href="/" className="site-header-logo" aria-label="myviptransfer">
           <Image
             src="/images/logo/logo-monogram-transparent.png"

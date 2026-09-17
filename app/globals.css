@@ -212,18 +212,15 @@ a {
   width: auto;
 }
 
-/* Mobile only: the header logo moves down into the lower part of the
-   hero window artwork's own dark backdrop, clear of the window's top
-   clip/hinge decoration, instead of sitting flush against the very top
-   edge. Pulled out of the header's flex row via absolute positioning so
-   the hamburger button (the row's only remaining flex child) keeps its
-   original top-right position — `margin-left: auto` replaces the
-   space-between behavior that relied on two children sharing the row. */
+/* Mobile only: the header logo is hidden here entirely — it now lives in
+   the hero's own bottom strip instead (see `.hero-mobile-logo`), clear of
+   the window artwork's top clip/hinge decoration and the oval itself.
+   Hiding it removes it from the header's flex row, so the hamburger
+   button (the row's only remaining flex child) needs `margin-left: auto`
+   in place of the space-between behavior that relied on two children. */
 @media (max-width: 640px) {
   .site-header-logo {
-    position: absolute;
-    left: 1.25rem;
-    top: 110px;
+    display: none;
   }
 
   .site-header-actions {
@@ -348,6 +345,20 @@ a {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.04);
   color: #f4f1ea;
+}
+
+/* Mobile only: a touch target of at least 44x44px, still a slim
+   hairline-bordered square that matches the rest of the header. */
+@media (max-width: 640px) {
+  .site-header-menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .site-header-menu-btn svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 @media (min-width: 960px) {
@@ -524,6 +535,29 @@ a {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
   z-index: 3;
+}
+
+/* Mobile only: sits in the flat dark strip below the window artwork's
+   oval (the same row as the WhatsApp float button), replacing the header
+   logo that used to overlap the window's top clip decoration. */
+.hero-mobile-logo {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .hero-mobile-logo {
+    display: block;
+    position: absolute;
+    left: 1.25rem;
+    bottom: 1.3rem;
+    z-index: 3;
+    line-height: 0;
+  }
+
+  .hero-mobile-logo img {
+    height: 36px;
+    width: auto;
+  }
 }
 
 /* ---------- loader ---------- */
@@ -1281,18 +1315,19 @@ a {
   fill: #fff;
 }
 
-/* Mobile only: the floating button is scaled to ~78% (padding, gap,
-   font-size and icon all scaled together so it keeps its proportions). */
+/* Mobile only: the floating button is scaled to ~78% of its desktop size,
+   then a further 15% down from that (padding, gap, font-size and icon all
+   scaled together so it keeps its proportions and the label doesn't wrap). */
 @media (max-width: 640px) {
   .wa-float {
-    gap: 0.47rem;
-    padding: 0.62rem 0.86rem;
-    font-size: 0.64rem;
+    gap: 0.4rem;
+    padding: 0.53rem 0.73rem;
+    font-size: 0.54rem;
   }
 
   .wa-float svg {
-    width: 1.02rem;
-    height: 1.02rem;
+    width: 0.87rem;
+    height: 0.87rem;
   }
 }
 
@@ -1391,4 +1426,11 @@ a {
   background: var(--navy);
   color: #f4f1ea;
   padding: 9rem 0 3.5rem;
+}
+
+/* `.section-lede`'s default color assumes a light background; `.page-hero`
+   is dark like `.section-dark` but isn't part of that family, so its lede
+   paragraphs were rendering near-invisible (dark navy text on dark navy). */
+.page-hero .section-lede {
+  color: rgba(244, 241, 234, 0.72);
 }

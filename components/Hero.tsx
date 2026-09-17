@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -126,6 +127,15 @@ export default function Hero() {
         </div>
 
         <p className="hero-scroll-hint">{t("Kaydırın", "Scroll")}</p>
+
+        <Link href="/" className="hero-mobile-logo" aria-label="myviptransfer">
+          <Image
+            src="/images/logo/logo-monogram-transparent.png"
+            alt="myviptransfer"
+            width={80}
+            height={53}
+          />
+        </Link>
       </section>
     </div>
   );
