@@ -1313,6 +1313,15 @@ a {
   line-height: 1.4;
 }
 
+/* `.destination-card` is also used on the light /destinations index
+   page, where the default dark-ink teaser color above is correct — only
+   override it here, inside `.section-dark` (the homepage preview),
+   where that same dark-on-dark color was unreadable against the navy
+   background. */
+.section-dark .destination-card-teaser {
+  color: var(--gold);
+}
+
 /* ---------- faq ---------- */
 
 .faq-list {
