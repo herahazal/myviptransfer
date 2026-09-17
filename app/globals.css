@@ -971,6 +971,23 @@ a {
   position: relative;
   padding-top: 1rem;
   border-top: 2px solid var(--gold);
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.step-card.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .step-number {
