@@ -448,6 +448,19 @@ a {
   overflow: hidden;
 }
 
+/* Oversized relative to `.hero-sky` so the scroll-linked parallax
+   translateY (applied here, not on the `img`) never uncovers an edge —
+   the `img`'s own Ken Burns scale keyframes stay on a separate element
+   so the two transforms don't fight over the same `transform` property. */
+.hero-sky-parallax {
+  position: absolute;
+  top: -8%;
+  left: 0;
+  right: 0;
+  height: 116%;
+  will-change: transform;
+}
+
 .hero-sky img {
   width: 100%;
   height: 100%;
@@ -641,18 +654,38 @@ a {
 }
 
 .why-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   background: var(--navy);
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.why-item-image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.why-item:hover .why-item-image {
+  transform: scale(1.08);
+}
+
+.why-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.1));
+  pointer-events: none;
 }
 
 .why-item-title {
+  position: relative;
+  z-index: 1;
   font-size: 1rem;
   font-weight: 700;
-  margin-top: 0.8rem;
-}
-
-.why-item-icon {
-  font-size: 1.6rem;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* ---------- services ---------- */
@@ -1091,6 +1124,7 @@ a {
 
 .pricing-card-title {
   font-size: 1.6rem;
+  color: var(--ink);
 }
 
 .pricing-card-note {

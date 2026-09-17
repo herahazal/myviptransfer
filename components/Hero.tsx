@@ -22,6 +22,7 @@ export default function Hero() {
   const copyRef = useRef<HTMLDivElement | null>(null);
   const scrollHintRef = useRef<HTMLParagraphElement | null>(null);
   const mobileLogoRef = useRef<HTMLAnchorElement | null>(null);
+  const skyParallaxRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
@@ -76,6 +77,14 @@ export default function Hero() {
 
           gsap.set(windowEl, { scale, opacity });
 
+          // Parallax: the photo behind the window drifts upward more
+          // slowly than the scroll itself, on its own wrapper (not the
+          // `img`, which already owns the Ken Burns scale keyframes) so
+          // the two transforms don't collide on the same property.
+          if (skyParallaxRef.current) {
+            gsap.set(skyParallaxRef.current, { y: progress * -60 });
+          }
+
           const copyProgress = gsap.utils.clamp(0, 1, (progress - 0.35) / 0.4);
           gsap.set(copyEl, {
             autoAlpha: copyProgress,
@@ -109,17 +118,19 @@ export default function Hero() {
     <div ref={rootRef}>
       <section className="hero">
         <div className="hero-sky">
-          <Image
-            src="/images/hero-family.png"
-            alt={t(
-              "myviptransfer VIP şoförü ailenin bagajlarına yardımcı oluyor",
-              "myviptransfer VIP chauffeur helping a family with their luggage",
-            )}
-            fill
-            priority
-            sizes="100vw"
-            quality={85}
-          />
+          <div className="hero-sky-parallax" ref={skyParallaxRef}>
+            <Image
+              src="/images/hero-family.png"
+              alt={t(
+                "myviptransfer VIP şoförü ailenin bagajlarına yardımcı oluyor",
+                "myviptransfer VIP chauffeur helping a family with their luggage",
+              )}
+              fill
+              priority
+              sizes="100vw"
+              quality={85}
+            />
+          </div>
         </div>
 
         <div className="hero-window">
