@@ -212,6 +212,25 @@ a {
   width: auto;
 }
 
+/* Mobile only: the header logo moves down into the lower part of the
+   hero window artwork's own dark backdrop, clear of the window's top
+   clip/hinge decoration, instead of sitting flush against the very top
+   edge. Pulled out of the header's flex row via absolute positioning so
+   the hamburger button (the row's only remaining flex child) keeps its
+   original top-right position — `margin-left: auto` replaces the
+   space-between behavior that relied on two children sharing the row. */
+@media (max-width: 640px) {
+  .site-header-logo {
+    position: absolute;
+    left: 1.25rem;
+    top: 110px;
+  }
+
+  .site-header-actions {
+    margin-left: auto;
+  }
+}
+
 .mobile-nav-logo {
   height: 66px;
   width: auto;
@@ -354,6 +373,30 @@ a {
   font-size: 2rem;
   padding: 0.6rem 0;
   border-bottom: 1px solid var(--line);
+}
+
+/* `.mobile-nav a` (font-size 2rem, serif, no horizontal padding) otherwise
+   beats `.btn-whatsapp` here on specificity alone (class+type vs. class),
+   which was silently blowing this button up to a giant serif pill. Matching
+   its own selector shape restores the intended compact button look. */
+.mobile-nav a.mobile-nav-whatsapp {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.4rem;
+  border-bottom: none;
+}
+
+/* Mobile only: the menu's WhatsApp CTA is scaled to 60% (a 40% reduction)
+   — width, height and type all shrink together via padding/gap/font-size
+   so the button keeps its proportions and the label doesn't wrap. */
+@media (max-width: 640px) {
+  .mobile-nav a.mobile-nav-whatsapp {
+    gap: 0.33rem;
+    padding: 0.45rem 0.84rem;
+    font-size: 0.48rem;
+  }
 }
 
 /* ---------- hero / aperture intro ---------- */
@@ -1236,6 +1279,21 @@ a {
   width: 1.3rem;
   height: 1.3rem;
   fill: #fff;
+}
+
+/* Mobile only: the floating button is scaled to ~78% (padding, gap,
+   font-size and icon all scaled together so it keeps its proportions). */
+@media (max-width: 640px) {
+  .wa-float {
+    gap: 0.47rem;
+    padding: 0.62rem 0.86rem;
+    font-size: 0.64rem;
+  }
+
+  .wa-float svg {
+    width: 1.02rem;
+    height: 1.02rem;
+  }
 }
 
 /* ---------- footer ---------- */

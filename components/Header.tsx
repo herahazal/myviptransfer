@@ -96,7 +96,7 @@ export default function Header() {
             href={whatsappLink(WHATSAPP_DEFAULT_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp mt-4 self-start"
+            className="btn-whatsapp mobile-nav-whatsapp mt-4 self-start"
           >
             {t("WhatsApp'tan Yazın", "Book via WhatsApp")}
           </a>
