@@ -20,6 +20,8 @@ export default function Hero() {
   const { t } = useLanguage();
   const rootRef = useRef<HTMLDivElement | null>(null);
   const copyRef = useRef<HTMLDivElement | null>(null);
+  const scrollHintRef = useRef<HTMLParagraphElement | null>(null);
+  const mobileLogoRef = useRef<HTMLAnchorElement | null>(null);
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
@@ -42,6 +44,17 @@ export default function Hero() {
 
       const isMobile = window.matchMedia("(max-width: 900px)").matches;
       const pinViewports = isMobile ? PIN_VIEWPORTS_MOBILE : PIN_VIEWPORTS;
+
+      // Mobile only (matches the CSS breakpoint `.hero-mobile-logo` shows
+      // at): the pin holds the hero on screen for `PIN_VIEWPORTS_MOBILE`
+      // (1.8) viewport-heights of scroll, but the bottom logo+"Kaydırın"
+      // strip has no scroll-linked fade of its own, so it stays parked
+      // there for that entire distance — long enough to read as "stuck"
+      // once the aperture has opened and the next section is scrolling
+      // into view behind it. Fading it out early (well before the pin
+      // itself ends) keeps it a hero-only cue. Desktop's `.hero-scroll-hint`
+      // is untouched — this branch never runs there.
+      const isSmallMobile = window.matchMedia("(max-width: 640px)").matches;
 
       gsap.set(copyEl, { autoAlpha: 0, y: 24 });
 
@@ -68,6 +81,16 @@ export default function Hero() {
             autoAlpha: copyProgress,
             y: 24 * (1 - copyProgress),
           });
+
+          if (isSmallMobile) {
+            const stripOpacity = 1 - gsap.utils.clamp(0, 1, progress / 0.12);
+            if (scrollHintRef.current) {
+              gsap.set(scrollHintRef.current, { autoAlpha: stripOpacity });
+            }
+            if (mobileLogoRef.current) {
+              gsap.set(mobileLogoRef.current, { autoAlpha: stripOpacity });
+            }
+          }
         },
       });
 
@@ -126,9 +149,9 @@ export default function Hero() {
           </div>
         </div>
 
-        <p className="hero-scroll-hint">{t("Kaydırın", "Scroll")}</p>
+        <p className="hero-scroll-hint" ref={scrollHintRef}>{t("Kaydırın", "Scroll")}</p>
 
-        <Link href="/" className="hero-mobile-logo" aria-label="myviptransfer">
+        <Link href="/" className="hero-mobile-logo" ref={mobileLogoRef} aria-label="myviptransfer">
           <Image
             src="/images/logo/logo-monogram-transparent.png"
             alt="myviptransfer"

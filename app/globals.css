@@ -212,15 +212,29 @@ a {
   width: auto;
 }
 
-/* Mobile only: the header logo is hidden here entirely — it now lives in
-   the hero's own bottom strip instead (see `.hero-mobile-logo`), clear of
-   the window artwork's top clip/hinge decoration and the oval itself.
-   Hiding it removes it from the header's flex row, so the hamburger
-   button (the row's only remaining flex child) needs `margin-left: auto`
-   in place of the space-between behavior that relied on two children. */
+/* Mobile only: while the homepage hero is showing (header transparent,
+   not yet scrolled), the header's own logo stays hidden — that moment
+   has its own logo living in the hero's bottom strip instead (see
+   `.hero-mobile-logo`), clear of the window artwork's top clip/hinge
+   decoration. Hiding it removes it from the header's flex row, so the
+   hamburger button (the row's only remaining flex child) needs
+   `margin-left: auto` in place of the space-between behavior that relied
+   on two children.
+   Once the header goes solid (`.is-scrolled` — scrolled past the hero,
+   or any non-home route via Header.tsx's `solid` state) the logo
+   reappears on the left, matching desktop, sized down to suit the
+   shorter mobile bar and centered against the hamburger. */
 @media (max-width: 640px) {
   .site-header-logo {
     display: none;
+  }
+
+  .site-header.is-scrolled .site-header-logo {
+    display: block;
+  }
+
+  .site-header.is-scrolled .site-header-logo img {
+    height: 30px;
   }
 
   .site-header-actions {
