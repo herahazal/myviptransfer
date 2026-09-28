@@ -1475,6 +1475,21 @@ a {
   }
 }
 
+.footer-badge {
+  display: block;
+  margin-top: 22px;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+@media (min-width: 780px) {
+  .footer-badge {
+    width: 220px;
+  }
+}
+
 .footer-heading {
   font-size: 0.75rem;
   font-weight: 700;

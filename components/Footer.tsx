@@ -27,6 +27,13 @@ export default function Footer() {
                 "Premium Private Transfers Across Turkey — VIP transfer, private tour and chauffeur services in Istanbul, Bodrum, Antalya and across Turkey.",
               )}
             </p>
+            <Image
+              src="/tursab.png"
+              alt="TÜRSAB Dijital Doğrulama Sistemi"
+              width={1600}
+              height={738}
+              className="footer-badge"
+            />
           </div>
 
           <div>
@@ -72,8 +79,8 @@ export default function Footer() {
 
         <div className="legal-box">
           {t(
-            "MY VIP TRANSFER — myviptransfer, Türkiye genelinde faaliyet gösteren bir seyahat acentası markasıdır. TÜRSAB belge numarası ve vergi bilgileri talep üzerine paylaşılır. Rezervasyon, iptal şartları ve fiyata dahil/dahil olmayan hizmetler booking ve fiyat sayfalarında ayrıca belirtilir.",
-            "MY VIP TRANSFER — myviptransfer is a travel agency brand operating across Turkey. TÜRSAB license number and tax details are available on request. Booking, cancellation terms and what's included or excluded are stated separately on the booking and pricing pages.",
+            "MY VIP TRANSFER — myviptransfer, Türkiye genelinde faaliyet gösteren bir seyahat acentası markasıdır. TÜRSAB belge no: 11829. Rezervasyon, iptal şartları ve fiyata dahil/dahil olmayan hizmetler booking ve fiyat sayfalarında ayrıca belirtilir.",
+            "MY VIP TRANSFER — myviptransfer is a travel agency brand operating across Turkey. TÜRSAB license no: 11829. Booking, cancellation terms and what's included or excluded are stated separately on the booking and pricing pages.",
           )}
         </div>
 
